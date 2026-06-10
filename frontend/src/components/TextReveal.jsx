@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
  * TextReveal component
  * Splits text into individual words and slides them up from an overflow hidden container.
  */
-const TextReveal = ({ children, text, className = '', delay = 0, once = true }) => {
+const TextReveal = ({ children, text, className = '', delay = 0, once = true, start = true }) => {
   const content = text || children || '';
   if (typeof content !== 'string') return <span className={className}>{content}</span>;
 
@@ -39,7 +39,8 @@ const TextReveal = ({ children, text, className = '', delay = 0, once = true }) 
       className={`inline-flex flex-wrap ${className}`}
       variants={containerVariants}
       initial="hidden"
-      whileInView="visible"
+      animate={start ? "visible" : "hidden"}
+      whileInView={start ? "visible" : "hidden"}
       viewport={{ once, margin: '-10% 0px -10% 0px' }}
     >
       {words.map((word, i) => (

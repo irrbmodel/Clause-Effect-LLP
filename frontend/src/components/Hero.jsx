@@ -4,7 +4,7 @@ import { ArrowDown, Sparkles, Scale, GraduationCap, Gavel } from './Icons';
 import Magnetic from './Magnetic';
 import TextReveal from './TextReveal';
 
-const Hero = () => {
+const Hero = ({ preloaderComplete }) => {
   const { scrollY } = useScroll();
 
   // Scroll parallax transforms for Awwwards depth feel
@@ -73,7 +73,7 @@ const Hero = () => {
           className="lg:col-span-7 flex flex-col items-start text-left"
           variants={containerVariants}
           initial="hidden"
-          animate="visible"
+          animate={preloaderComplete ? "visible" : "hidden"}
         >
           {/* Badge */}
           <motion.div 
@@ -86,14 +86,14 @@ const Hero = () => {
 
           {/* Headline (Split-text mask reveal) */}
           <h1 className="text-4xl md:text-6xl lg:text-7.5xl font-extrabold tracking-tight leading-[1.05] text-slate-900 font-display mb-6">
-            <TextReveal delay={0.1}>Precision in</TextReveal>{' '}
+            <TextReveal delay={0.1} start={preloaderComplete}>Precision in</TextReveal>{' '}
             <span className="text-brand-blue italic font-medium font-serif inline-block">
-              <TextReveal delay={0.25}>Drafting.</TextReveal>
+              <TextReveal delay={0.25} start={preloaderComplete}>Drafting.</TextReveal>
             </span>
             <br />
-            <TextReveal delay={0.4}>Power in</TextReveal>{' '}
+            <TextReveal delay={0.4} start={preloaderComplete}>Power in</TextReveal>{' '}
             <span className="text-brand-red italic font-medium font-serif inline-block">
-              <TextReveal delay={0.55}>Execution.</TextReveal>
+              <TextReveal delay={0.55} start={preloaderComplete}>Execution.</TextReveal>
             </span>
           </h1>
 
@@ -135,7 +135,12 @@ const Hero = () => {
         </motion.div>
 
         {/* Right column: Graphic Display / Floating Cards (Scroll-linked Parallax) */}
-        <div className="lg:col-span-5 relative h-[450px] flex items-center justify-center">
+        <motion.div 
+          className="lg:col-span-5 relative h-[450px] flex items-center justify-center"
+          initial={{ opacity: 0, scale: 0.92 }}
+          animate={preloaderComplete ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.92 }}
+          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.15 }}
+        >
           {/* Main Visual Core */}
           <motion.div 
             className="relative w-72 h-72 rounded-full border border-black/4 bg-white flex items-center justify-center shadow-[0_20px_50px_rgba(15,23,42,0.05)]"
@@ -227,7 +232,7 @@ const Hero = () => {
               </div>
             </motion.div>
           </motion.div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Bottom Scroll Indicator */}
