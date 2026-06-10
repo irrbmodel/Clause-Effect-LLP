@@ -77,7 +77,7 @@ const Contact = () => {
               {/* Address details */}
               <div className="flex flex-col gap-6">
                 <div className="flex items-start gap-4">
-                  <div className="p-3.5 rounded-xl bg-brand-blue/10 border border-brand-blue/20 text-brand-blue flex-shrink-0">
+                  <div className="p-3.5 rounded-xl bg-brand-blue/10 border border-brand-blue/20 text-brand-blue shrink-0">
                     <Mail size={18} />
                   </div>
                   <div>
@@ -89,7 +89,7 @@ const Contact = () => {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="p-3.5 rounded-xl bg-brand-red/10 border border-brand-red/20 text-brand-red flex-shrink-0">
+                  <div className="p-3.5 rounded-xl bg-brand-red/10 border border-brand-red/20 text-brand-red shrink-0">
                     <Phone size={18} />
                   </div>
                   <div>
@@ -101,7 +101,7 @@ const Contact = () => {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 text-white flex-shrink-0">
+                  <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 text-white shrink-0">
                     <MapPin size={18} />
                   </div>
                   <div>
@@ -116,7 +116,7 @@ const Contact = () => {
 
             {/* Quick response note */}
             <div className="mt-12 p-4 rounded-2xl bg-brand-card/60 border border-white/5 flex items-center gap-3">
-              <Clock className="text-brand-blue flex-shrink-0 animate-pulse" size={20} />
+              <Clock className="text-brand-blue shrink-0 animate-pulse" size={20} />
               <div className="text-xs text-slate-400 font-medium">
                 We guarantee a review and follow-up response within 24 business hours.
               </div>

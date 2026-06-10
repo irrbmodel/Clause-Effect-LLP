@@ -108,7 +108,7 @@ const Services = () => {
                   data-hover="true"
                   data-hover-type={isActive ? 'red' : 'blue'}
                 >
-                  <div className={`p-3 rounded-xl border flex-shrink-0 ${service.iconColor}`}>
+                  <div className={`p-3 rounded-xl border shrink-0 ${service.iconColor}`}>
                     <Icon size={24} />
                   </div>
                   <div className="text-left">
@@ -126,7 +126,7 @@ const Services = () => {
           {/* Details Pane */}
           <div className="lg:col-span-6">
             <div className="glass rounded-3xl border-white/10 p-8 h-full flex flex-col justify-between text-left relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-brand-blue/10 to-transparent rounded-tr-3xl pointer-events-none" />
+              <div className="absolute top-0 right-0 w-32 h-32 bg-linear-to-bl from-brand-blue/10 to-transparent rounded-tr-3xl pointer-events-none" />
               
               <AnimatePresence mode="wait">
                 {servicesData.map((service) => {
@@ -168,7 +168,7 @@ const Services = () => {
                           <ul className="flex flex-col gap-3">
                             {service.points.map((pt, i) => (
                               <li key={i} className="flex items-start gap-3 text-sm text-slate-300">
-                                <CheckCircle2 size={16} className="text-brand-red mt-0.5 flex-shrink-0" />
+                                <CheckCircle2 size={16} className="text-brand-red mt-0.5 shrink-0" />
                                 <span>{pt}</span>
                               </li>
                             ))}

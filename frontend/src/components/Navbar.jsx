@@ -69,7 +69,7 @@ const Navbar = () => {
             data-hover="true"
             data-hover-type="blue"
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-blue to-brand-red flex items-center justify-center text-white shadow-[0_0_15px_rgba(37,99,235,0.4)] transition-all duration-300 group-hover:rotate-12">
+            <div className="w-10 h-10 rounded-xl bg-linear-to-tr from-brand-blue to-brand-red flex items-center justify-center text-white shadow-[0_0_15px_rgba(37,99,235,0.4)] transition-all duration-300 group-hover:rotate-12">
               <Scale size={20} className="stroke-[2.5]" />
             </div>
             <span className="font-display font-bold text-xl tracking-tight text-white">
@@ -122,7 +122,7 @@ const Navbar = () => {
 
         {/* Scroll Progress Bar */}
         <motion.div
-          className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-brand-blue via-purple-500 to-brand-red origin-[0%]"
+          className="absolute bottom-0 left-0 right-0 h-[2px] bg-linear-to-r from-brand-blue via-purple-500 to-brand-red origin-[0%]"
           style={{ scaleX }}
         />
       </motion.nav>

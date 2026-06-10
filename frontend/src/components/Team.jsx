@@ -130,7 +130,7 @@ const Team = () => {
                 className="glass glass-hover p-6 rounded-3xl border-white/5 flex flex-col justify-between h-full relative group overflow-hidden"
               >
                 {/* Accent line on hover */}
-                <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-brand-blue to-brand-red opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute top-0 left-0 w-full h-[3px] bg-linear-to-r from-brand-blue to-brand-red opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 
                 <div>
                   {/* Monogram profile visual */}
@@ -145,11 +145,11 @@ const Team = () => {
 
                   <div className="flex flex-col gap-2 border-t border-white/5 pt-4">
                     <div className="flex items-start gap-2.5 text-xs text-slate-300">
-                      <GraduationCap size={14} className="text-brand-blue flex-shrink-0 mt-0.5" />
+                      <GraduationCap size={14} className="text-brand-blue shrink-0 mt-0.5" />
                       <span>{person.education}</span>
                     </div>
                     <div className="flex items-start gap-2.5 text-xs text-slate-400">
-                      <Scale size={14} className="text-brand-blue flex-shrink-0 mt-0.5" />
+                      <Scale size={14} className="text-brand-blue shrink-0 mt-0.5" />
                       <span>{person.experience}</span>
                     </div>
                     <div className="flex items-start gap-2.5 text-xs text-slate-400 italic mt-1 border-l-2 border-slate-700 pl-2">

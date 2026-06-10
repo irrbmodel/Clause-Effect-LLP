@@ -138,13 +138,13 @@ const InteractiveSimulator = () => {
             >
               <ArrowRight size={18} />
             </motion.div>
-            <div className="w-[1px] h-32 bg-gradient-to-b from-brand-blue to-brand-red my-4 opacity-50" />
+            <div className="w-px h-32 bg-linear-to-b from-brand-blue to-brand-red my-4 opacity-50" />
           </div>
 
           {/* Right Panel: Simulated Effect Outcomes */}
           <div className="lg:col-span-6">
             <div className="glass h-full p-6 md:p-8 rounded-3xl border-white/10 flex flex-col justify-between relative">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-brand-red/10 to-transparent rounded-tr-3xl pointer-events-none" />
+              <div className="absolute top-0 right-0 w-24 h-24 bg-linear-to-br from-brand-red/10 to-transparent rounded-tr-3xl pointer-events-none" />
               
               <AnimatePresence mode="wait">
                 <motion.div

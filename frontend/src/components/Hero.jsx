@@ -70,9 +70,9 @@ const Hero = () => {
             variants={itemVariants}
             className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight text-white mb-6"
           >
-            Precision in <span className="bg-gradient-to-r from-brand-blue to-blue-400 bg-clip-text text-transparent">Drafting</span>.
+            Precision in <span className="bg-linear-to-r from-brand-blue to-blue-400 bg-clip-text text-transparent">Drafting</span>.
             <br />
-            Power in <span className="bg-gradient-to-r from-brand-red to-red-400 bg-clip-text text-transparent">Execution</span>.
+            Power in <span className="bg-linear-to-r from-brand-red to-red-400 bg-clip-text text-transparent">Execution</span>.
           </motion.h1>
 
           {/* Subtitle */}

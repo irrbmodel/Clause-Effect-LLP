@@ -25,7 +25,7 @@ const Director = () => {
               <div className="absolute inset-0 opacity-10 mix-blend-overlay grid-bg" />
 
               {/* Monogram emblem */}
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-brand-blue to-brand-red flex items-center justify-center text-white font-display font-extrabold text-2xl shadow-[0_0_20px_rgba(37,99,235,0.3)] mx-auto mt-4 transition-transform duration-500 group-hover:rotate-6">
+              <div className="w-16 h-16 rounded-2xl bg-linear-to-tr from-brand-blue to-brand-red flex items-center justify-center text-white font-display font-extrabold text-2xl shadow-[0_0_20px_rgba(37,99,235,0.3)] mx-auto mt-4 transition-transform duration-500 group-hover:rotate-6">
                 JRC
               </div>
 
@@ -69,7 +69,7 @@ const Director = () => {
             {/* Operational Commitments */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6 border-t border-white/5">
               <div className="flex gap-3">
-                <ShieldCheck size={24} className="text-brand-red flex-shrink-0 mt-1" />
+                <ShieldCheck size={24} className="text-brand-red shrink-0 mt-1" />
                 <div>
                   <h4 className="font-bold text-white text-base">Uncompromising Integrity</h4>
                   <p className="text-xs text-slate-400 mt-1 leading-relaxed">
@@ -78,7 +78,7 @@ const Director = () => {
                 </div>
               </div>
               <div className="flex gap-3">
-                <Scale size={24} className="text-brand-blue flex-shrink-0 mt-1" />
+                <Scale size={24} className="text-brand-blue shrink-0 mt-1" />
                 <div>
                   <h4 className="font-bold text-white text-base">Outcome-Driven Drafting</h4>
                   <p className="text-xs text-slate-400 mt-1 leading-relaxed">
@@ -90,7 +90,7 @@ const Director = () => {
 
             {/* Signature Area */}
             <div className="mt-10 flex items-center gap-6">
-              <div className="w-16 h-[1px] bg-slate-800" />
+              <div className="w-16 h-px bg-slate-800" />
               <div>
                 <div className="font-serif text-xl italic font-semibold text-white/90 tracking-wide select-none">
                   J. R. Chowdhury

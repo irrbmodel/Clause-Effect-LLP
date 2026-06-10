@@ -169,14 +169,14 @@ const StudentPortal = () => {
                   <h3 className="text-2xl font-bold font-display text-white tracking-wide">
                     CERTIFICATE OF COMPLETION
                   </h3>
-                  <div className="w-20 h-[1.5px] bg-gradient-to-r from-brand-blue to-brand-red mx-auto my-3" />
+                  <div className="w-20 h-[1.5px] bg-linear-to-r from-brand-blue to-brand-red mx-auto my-3" />
                 </div>
 
                 <div className="my-2">
                   <p className="text-[10px] italic text-slate-400 tracking-wider">
                     This certifies that the academic board has awarded graduation honors to
                   </p>
-                  <h4 className="text-2xl md:text-3xl font-extrabold font-display bg-gradient-to-r from-brand-red via-white to-brand-blue bg-clip-text text-transparent my-2 drop-shadow-md">
+                  <h4 className="text-2xl md:text-3xl font-extrabold font-display bg-linear-to-r from-brand-red via-white to-brand-blue bg-clip-text text-transparent my-2 drop-shadow-md">
                     {studentName || 'Graduating Student'}
                   </h4>
                   <p className="text-[9px] text-slate-400 max-w-sm mx-auto leading-relaxed mt-2">
