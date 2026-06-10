@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
-import { Menu, X, ArrowUpRight, Scale } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Scale } from './Icons';
 
 const navLinks = [
   { name: 'About', href: '#about' },

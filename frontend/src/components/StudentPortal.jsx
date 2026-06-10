@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ShieldCheck, Award, Clock, Users, GraduationCap, CheckCircle2, ChevronRight, Download } from 'lucide-react';
+import { ShieldCheck, Award, Clock, Users, GraduationCap, CheckCircle2, ChevronRight, Download } from './Icons';
 
 const courses = [
   {

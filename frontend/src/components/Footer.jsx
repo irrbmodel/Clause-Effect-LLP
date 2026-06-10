@@ -1,5 +1,5 @@
 import React from 'react';
-import { Scale, Heart, Shield, ArrowUpRight } from 'lucide-react';
+import { Scale, Heart, Shield, ArrowUpRight } from './Icons';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShieldAlert, DollarSign, Calendar, Sparkles, FileText, ArrowRight, Activity } from 'lucide-react';
+import { ShieldAlert, DollarSign, Calendar, Sparkles, FileText, ArrowRight, Activity } from './Icons';
 
 const clausesData = [
   {

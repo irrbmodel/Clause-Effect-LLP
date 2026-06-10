@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Linkedin, Scale, Award, GraduationCap } from 'lucide-react';
+import { Mail, Linkedin, Scale, Award, GraduationCap } from './Icons';
 
 const teamData = {
   faculty: [

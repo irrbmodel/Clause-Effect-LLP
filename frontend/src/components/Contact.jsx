@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, CheckCircle2, Clock } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle2, Clock } from './Icons';
 
 const Contact = () => {
   const [formData, setFormData] = useState({

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowDown, Sparkles, Scale, GraduationCap, Gavel } from 'lucide-react';
+import { ArrowDown, Sparkles, Scale, GraduationCap, Gavel } from './Icons';
 
 const Hero = () => {
   const containerVariants = {

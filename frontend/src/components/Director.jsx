@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Quote, ShieldCheck, Scale, Award } from 'lucide-react';
+import { Quote, ShieldCheck, Scale, Award } from './Icons';
 
 const Director = () => {
   return (
