@@ -35,8 +35,6 @@ const StudentPortal = () => {
   const [studentName, setStudentName] = useState('Jane Doe');
   const [selectedCourse, setSelectedCourse] = useState('drafting');
   const [isGenerating, setIsGenerating] = useState(false);
-  const [rotateX, setRotateX] = useState(0);
-  const [rotateY, setRotateY] = useState(0);
 
   const activeCourse = courses.find(c => c.id === selectedCourse);
 
@@ -46,22 +44,6 @@ const StudentPortal = () => {
       window.print();
       setIsGenerating(false);
     }, 1000);
-  };
-
-  const handleMouseMove = (e) => {
-    const card = e.currentTarget;
-    const box = card.getBoundingClientRect();
-    const x = e.clientX - box.left - box.width / 2;
-    const y = e.clientY - box.top - box.height / 2;
-    
-    // Max tilt 15 degrees
-    setRotateX(-y / (box.height / 30));
-    setRotateY(x / (box.width / 30));
-  };
-
-  const handleMouseLeave = () => {
-    setRotateX(0);
-    setRotateY(0);
   };
 
   return (
@@ -165,21 +147,10 @@ const StudentPortal = () => {
           <div className="lg:col-span-7">
             <div className="bg-white border border-black/4 rounded-3xl p-6 md:p-8 flex flex-col items-center justify-between h-full min-h-[450px] shadow-[0_25px_60px_-15px_rgba(15,23,42,0.04)]">
               
-              {/* Interactive Certificate View */}
-              <motion.div 
-                className="relative w-full aspect-[1.414/1] bg-[#FAF8F2] border-8 border-slate-200/80 shadow-[0_15px_40px_rgba(15,23,42,0.06)] rounded-lg p-5 md:p-8 flex flex-col justify-between items-center text-center select-none overflow-hidden print:bg-white print:text-black print:border-black cursor-grab active:cursor-grabbing"
+              {/* Dynamic Certificate View */}
+              <div 
+                className="relative w-full aspect-[1.414/1] bg-[#FAF8F2] border-8 border-slate-200/80 shadow-[0_15px_40px_rgba(15,23,42,0.06)] rounded-lg p-5 md:p-8 flex flex-col justify-between items-center text-center select-none overflow-hidden print:bg-white print:text-black print:border-black"
                 id="certificate-print-area"
-                onMouseMove={handleMouseMove}
-                onMouseLeave={handleMouseLeave}
-                data-hover="true"
-                data-hover-type="text"
-                data-hover-text="TILT"
-                animate={{
-                  rotateX: rotateX,
-                  rotateY: rotateY,
-                  transformPerspective: 1000,
-                }}
-                transition={{ type: 'spring', damping: 25, stiffness: 200, mass: 0.5 }}
               >
                 {/* Thin double border for document feel */}
                 <div className="absolute inset-2 border border-[#E3DFC9] pointer-events-none" />
@@ -246,7 +217,7 @@ const StudentPortal = () => {
                   </div>
                 </div>
 
-              </motion.div>
+              </div>
 
               <div className="w-full flex items-center justify-center gap-4 mt-6">
                 <Magnetic range={40} strength={0.3}>
