@@ -15,10 +15,14 @@ import Preloader from './components/Preloader';
 
 const App = () => {
   const [preloaderComplete, setPreloaderComplete] = useState(false);
+  const [startHeroAnimation, setStartHeroAnimation] = useState(false);
 
   return (
     <>
-      <AnimatePresence mode="wait">
+      <AnimatePresence 
+        mode="wait" 
+        onExitComplete={() => setStartHeroAnimation(true)}
+      >
         {!preloaderComplete && (
           <Preloader onComplete={() => setPreloaderComplete(true)} />
         )}
@@ -38,7 +42,7 @@ const App = () => {
           {/* Content Sections */}
           <main>
             {/* Hero Banner */}
-            <Hero preloaderComplete={preloaderComplete} />
+            <Hero preloaderComplete={startHeroAnimation} />
 
             {/* Clause & Effect Simulator (Visualizing drafting and results) */}
             <InteractiveSimulator />

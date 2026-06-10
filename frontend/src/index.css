@@ -141,7 +141,6 @@ html.lenis, html.lenis body {
   pointer-events: none;
 }
 
-/* Animated Editorial Noise overlay */
 .noise-overlay {
   position: fixed;
   top: -50%;
@@ -155,6 +154,9 @@ html.lenis, html.lenis body {
   pointer-events: none;
   z-index: 9999;
   animation: grain 12s steps(8) infinite;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
 }
 
 @keyframes grain {

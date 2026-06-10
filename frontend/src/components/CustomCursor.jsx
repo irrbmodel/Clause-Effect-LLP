@@ -124,6 +124,7 @@ const CustomCursor = () => {
         style={{
           x: cursorXSpring,
           y: cursorYSpring,
+          willChange: 'transform',
         }}
         animate={getFollowerAnimation()}
         transition={{ type: 'spring', damping: 25, stiffness: 220, mass: 0.2 }}
@@ -146,6 +147,7 @@ const CustomCursor = () => {
         style={{
           x: cursorX,
           y: cursorY,
+          willChange: 'transform',
         }}
         animate={getDotAnimation()}
         transition={{ duration: 0.15 }}
