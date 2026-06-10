@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShieldAlert, DollarSign, Calendar, Sparkles, FileText, ArrowRight, Activity } from './Icons';
+import TextReveal from './TextReveal';
+import Magnetic from './Magnetic';
 
 const clausesData = [
   {
@@ -84,7 +86,7 @@ const InteractiveSimulator = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-bold uppercase tracking-widest text-brand-red">Brand Mechanics</span>
           <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mt-3 mb-6 font-display">
-            The Clause & Effect Concept
+            <TextReveal>The Clause & Effect Concept</TextReveal>
           </h2>
           <p className="text-slate-600 text-base md:text-lg">
             A contract is not just a document; it is a business strategy. Explore how single clauses shape actual corporate outcomes, litigation costs, and operational timelines.
@@ -111,7 +113,8 @@ const InteractiveSimulator = () => {
                       : 'bg-white/40 border-black/3 hover:border-black/8 hover:bg-white'
                   }`}
                   data-hover="true"
-                  data-hover-type={isSelected ? 'red' : 'blue'}
+                  data-hover-type="text"
+                  data-hover-text={isSelected ? 'ACTIVE' : 'SELECT'}
                 >
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-[9px] uppercase font-bold tracking-widest text-slate-400">

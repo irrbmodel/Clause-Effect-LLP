@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
  * Magnetic component using Framer Motion
  * Adds a physical magnetic attraction effect to child elements.
  */
-const Magnetic = ({ children, range = 50, strength = 0.35 }) => {
+const Magnetic = ({ children, range = 50, strength = 0.35, className = "inline-block" }) => {
   const ref = useRef(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
@@ -42,7 +42,7 @@ const Magnetic = ({ children, range = 50, strength = 0.35 }) => {
       onMouseLeave={handleMouseLeave}
       animate={{ x: position.x, y: position.y }}
       transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 0.1 }}
-      className="inline-block"
+      className={className}
     >
       {children}
     </motion.div>

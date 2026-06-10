@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ShieldCheck, Award, Clock, Users, GraduationCap, CheckCircle2, ChevronRight, Download } from './Icons';
+import TextReveal from './TextReveal';
+import Magnetic from './Magnetic';
 
 const courses = [
   {
@@ -73,7 +75,7 @@ const StudentPortal = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-bold uppercase tracking-widest text-brand-red">Clause & Effect LLP Academy</span>
           <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mt-3 mb-6 font-display">
-            Interactive Student Portal
+            <TextReveal>Interactive Student Portal</TextReveal>
           </h2>
           <p className="text-slate-600 text-base md:text-lg">
             Empowering lawyers, law students, and business executives. Experience our learning management mockup and test drive our live certificate renderer below.
@@ -169,6 +171,9 @@ const StudentPortal = () => {
                 id="certificate-print-area"
                 onMouseMove={handleMouseMove}
                 onMouseLeave={handleMouseLeave}
+                data-hover="true"
+                data-hover-type="text"
+                data-hover-text="TILT"
                 animate={{
                   rotateX: rotateX,
                   rotateY: rotateY,
@@ -243,18 +248,19 @@ const StudentPortal = () => {
 
               </motion.div>
 
-              {/* Action Buttons */}
               <div className="w-full flex items-center justify-center gap-4 mt-6">
-                <button
-                  onClick={handlePrint}
-                  disabled={isGenerating}
-                  className="px-6 py-3.5 rounded-xl font-bold bg-brand-red hover:bg-brand-red/95 text-white flex items-center gap-2 transition-all duration-300 shadow-[0_4px_12px_rgba(185,28,28,0.1)] hover:scale-[1.02] text-xs uppercase tracking-wider"
-                  data-hover="true"
-                  data-hover-type="red"
-                >
-                  <Download size={15} className="stroke-[2.5]" />
-                  {isGenerating ? 'Rendering...' : 'Download Certificate'}
-                </button>
+                <Magnetic range={40} strength={0.3}>
+                  <button
+                    onClick={handlePrint}
+                    disabled={isGenerating}
+                    className="px-6 py-3.5 rounded-xl font-bold bg-brand-red hover:bg-brand-red/95 text-white flex items-center gap-2 transition-all duration-300 shadow-[0_4px_12px_rgba(185,28,28,0.1)] hover:scale-[1.02] text-xs uppercase tracking-wider"
+                    data-hover="true"
+                    data-hover-type="invert"
+                  >
+                    <Download size={15} className="stroke-[2.5]" />
+                    {isGenerating ? 'Rendering...' : 'Download Certificate'}
+                  </button>
+                </Magnetic>
               </div>
 
             </div>

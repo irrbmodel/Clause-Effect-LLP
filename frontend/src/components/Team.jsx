@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Linkedin, Scale, Award, GraduationCap } from './Icons';
+import TextReveal from './TextReveal';
+import Magnetic from './Magnetic';
 
 const teamData = {
   faculty: [
@@ -83,7 +85,7 @@ const Team = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-bold uppercase tracking-widest text-brand-red">Our Experts</span>
           <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mt-3 mb-6 font-display">
-            Faculty, Partners & Advisors
+            <TextReveal>Faculty, Partners & Advisors</TextReveal>
           </h2>
           <p className="text-slate-600 text-base md:text-lg">
             A consortium of senior advocates, corporate lawyers, retired judges, and academic scholars uniting legal precision with business strategy.
@@ -92,30 +94,34 @@ const Team = () => {
 
         {/* Tab Buttons */}
         <div className="flex items-center justify-center gap-4 mb-12">
-          <button
-            onClick={() => setActiveTab('faculty')}
-            className={`px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
-              activeTab === 'faculty'
-                ? 'bg-brand-blue text-white shadow-md'
-                : 'bg-white text-slate-500 hover:text-slate-800 border border-black/4'
-            }`}
-            data-hover="true"
-            data-hover-type="blue"
-          >
-            Faculty & Partners
-          </button>
-          <button
-            onClick={() => setActiveTab('advisors')}
-            className={`px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
-              activeTab === 'advisors'
-                ? 'bg-brand-blue text-white shadow-md'
-                : 'bg-white text-slate-500 hover:text-slate-800 border border-black/4'
-            }`}
-            data-hover="true"
-            data-hover-type="blue"
-          >
-            Board of Advisors
-          </button>
+          <Magnetic range={25} strength={0.25}>
+            <button
+              onClick={() => setActiveTab('faculty')}
+              className={`px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
+                activeTab === 'faculty'
+                  ? 'bg-brand-blue text-white shadow-md'
+                  : 'bg-white text-slate-500 hover:text-slate-800 border border-black/4'
+              }`}
+              data-hover="true"
+              data-hover-type="invert"
+            >
+              Faculty & Partners
+            </button>
+          </Magnetic>
+          <Magnetic range={25} strength={0.25}>
+            <button
+              onClick={() => setActiveTab('advisors')}
+              className={`px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
+                activeTab === 'advisors'
+                  ? 'bg-brand-blue text-white shadow-md'
+                  : 'bg-white text-slate-500 hover:text-slate-800 border border-black/4'
+              }`}
+              data-hover="true"
+              data-hover-type="invert"
+            >
+              Board of Advisors
+            </button>
+          </Magnetic>
         </div>
 
         {/* Profiles Grid */}
@@ -161,24 +167,28 @@ const Team = () => {
 
                 {/* Social Actions */}
                 <div className="flex items-center gap-3 mt-8 pt-4 border-t border-black/3">
-                  <a
-                    href={person.linkedin}
-                    className="p-2 rounded-lg bg-slate-50 hover:bg-slate-100 border border-black/3 hover:border-brand-blue text-slate-400 hover:text-slate-700 transition-all duration-200"
-                    aria-label="LinkedIn Profile"
-                    data-hover="true"
-                    data-hover-type="blue"
-                  >
-                    <Linkedin size={14} />
-                  </a>
-                  <a
-                    href={person.email}
-                    className="p-2 rounded-lg bg-slate-50 hover:bg-slate-100 border border-black/3 hover:border-brand-red text-slate-400 hover:text-slate-700 transition-all duration-200"
-                    aria-label="Send Email"
-                    data-hover="true"
-                    data-hover-type="red"
-                  >
-                    <Mail size={14} />
-                  </a>
+                  <Magnetic range={15} strength={0.3}>
+                    <a
+                      href={person.linkedin}
+                      className="p-2 rounded-lg bg-slate-50 hover:bg-slate-100 border border-black/3 hover:border-brand-blue text-slate-400 hover:text-slate-700 transition-all duration-200"
+                      aria-label="LinkedIn Profile"
+                      data-hover="true"
+                      data-hover-type="invert"
+                    >
+                      <Linkedin size={14} />
+                    </a>
+                  </Magnetic>
+                  <Magnetic range={15} strength={0.3}>
+                    <a
+                      href={person.email}
+                      className="p-2 rounded-lg bg-slate-50 hover:bg-slate-100 border border-black/3 hover:border-brand-red text-slate-400 hover:text-slate-700 transition-all duration-200"
+                      aria-label="Send Email"
+                      data-hover="true"
+                      data-hover-type="invert"
+                    >
+                      <Mail size={14} />
+                    </a>
+                  </Magnetic>
                 </div>
 
               </motion.div>

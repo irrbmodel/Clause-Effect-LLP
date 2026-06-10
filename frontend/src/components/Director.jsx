@@ -1,10 +1,25 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Quote, ShieldCheck, Scale, Award } from './Icons';
+import TextReveal from './TextReveal';
 
 const Director = () => {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start end', 'end start'],
+  });
+
+  // Parallax displacement and rotation for the visual card
+  const yPortrait = useTransform(scrollYProgress, [0, 1], [-45, 45]);
+  const rotatePortrait = useTransform(scrollYProgress, [0, 1], [-2.5, 2.5]);
+
   return (
-    <section id="director" className="py-24 relative overflow-hidden bg-brand-darker grid-bg border-b border-black/4">
+    <section 
+      id="director" 
+      ref={containerRef}
+      className="py-24 relative overflow-hidden bg-brand-darker grid-bg border-b border-black/4"
+    >
       {/* Background Soft Glow */}
       <div className="glow-red w-[450px] h-[450px] bottom-0 left-0 opacity-20" />
       
@@ -12,14 +27,14 @@ const Director = () => {
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           
-          {/* Left: Monogram Frame / Styled Visual Portrait */}
+          {/* Left: Monogram Frame / Styled Visual Portrait (Parallax effect) */}
           <div className="lg:col-span-5 relative flex items-center justify-center">
             <motion.div 
-              className="relative w-80 h-96 rounded-3xl overflow-hidden border border-black/4 bg-white shadow-[0_30px_70px_-15px_rgba(15,23,42,0.06)] flex flex-col justify-between p-8 group"
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 0.6 }}
+              style={{ y: yPortrait, rotate: rotatePortrait }}
+              className="relative w-80 h-96 rounded-3xl overflow-hidden border border-black/4 bg-white shadow-[0_30px_70px_-15px_rgba(15,23,42,0.06)] flex flex-col justify-between p-8 group cursor-default"
+              data-hover="true"
+              data-hover-type="text"
+              data-hover-text="SENATE"
             >
               {/* Abstract decorative backgrounds */}
               <div className="absolute inset-0 bg-radial-[circle_at_top,rgba(29,78,216,0.04)_0%,rgba(255,255,255,0)_70%] pointer-events-none" />
@@ -43,20 +58,25 @@ const Director = () => {
             </motion.div>
 
             {/* Behind Background floating card */}
-            <div className="absolute -bottom-6 -right-4 bg-white/90 border border-black/4 backdrop-blur-md rounded-2xl p-4 flex items-center gap-3 shadow-md z-20">
+            <motion.div 
+              style={{ y: useTransform(scrollYProgress, [0, 1], [-20, 20]) }}
+              className="absolute -bottom-6 -right-4 bg-white/90 border border-black/4 backdrop-blur-md rounded-2xl p-4 flex items-center gap-3 shadow-md z-20"
+            >
               <Award className="text-brand-blue" size={24} />
               <div className="text-left">
                 <div className="text-xs font-bold text-slate-800">18+ Years</div>
                 <div className="text-[9px] text-slate-400 font-bold uppercase">Chamber Practice</div>
               </div>
-            </div>
+            </motion.div>
           </div>
 
           {/* Right: Message & Philosophies */}
           <div className="lg:col-span-7 text-left flex flex-col justify-center">
             <span className="text-xs font-bold uppercase tracking-widest text-brand-blue">Director's Insight</span>
             <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mt-3 mb-6 leading-[1.1] font-display">
-              Founding Strategy & Governance
+              <TextReveal>Founding Strategy</TextReveal>
+              <br />
+              <TextReveal>& Governance</TextReveal>
             </h2>
 
             {/* Quoted Message */}

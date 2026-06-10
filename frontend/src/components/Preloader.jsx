@@ -57,6 +57,43 @@ const Preloader = ({ onComplete }) => {
     }),
   };
 
+  // Gavel swinging animation definitions
+  const gavelAnimation = {
+    rotate: [-35, 0, 0, -35, -35],
+  };
+
+  const gavelTransition = {
+    duration: 1.2,
+    times: [0, 0.15, 0.3, 0.75, 1],
+    repeat: Infinity,
+    ease: "easeInOut",
+  };
+
+  // Shockwave ripples timings synced with gavel hit (at t = 0.15s)
+  const shockwaveAnimation = {
+    scale: [0.3, 0.3, 1.8, 1.8],
+    opacity: [0, 0.9, 0, 0],
+  };
+
+  const shockwaveTransition = {
+    duration: 1.2,
+    times: [0, 0.15, 0.5, 1],
+    repeat: Infinity,
+    ease: "easeOut",
+  };
+
+  const shockwaveAnimation2 = {
+    scale: [0.3, 0.3, 2.2, 2.2],
+    opacity: [0, 0.7, 0, 0],
+  };
+
+  const shockwaveTransition2 = {
+    duration: 1.2,
+    times: [0, 0.22, 0.6, 1],
+    repeat: Infinity,
+    ease: "easeOut",
+  };
+
   return (
     <motion.div
       variants={containerVariants}
@@ -65,15 +102,92 @@ const Preloader = ({ onComplete }) => {
       className="fixed inset-0 bg-brand-darker z-9999 flex flex-col items-center justify-center select-none"
     >
       <div className="flex flex-col items-center text-center px-6 max-w-md w-full">
-        {/* Monogram / Logo */}
+        {/* Monogram / Animated Gavel Logo */}
         <motion.div
           custom={0}
           variants={textVariants}
           initial="hidden"
           animate="visible"
-          className="w-16 h-16 rounded-2xl bg-linear-to-tr from-brand-blue to-brand-red flex items-center justify-center text-white font-sans font-extrabold text-2xl shadow-[0_8px_20px_rgba(29,78,216,0.15)] mb-6"
+          className="w-24 h-24 relative flex items-center justify-center mb-6"
         >
-          C&E
+          <svg
+            width="100%"
+            height="100%"
+            viewBox="0 0 100 100"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="text-slate-800"
+          >
+            {/* Shockwave Ripples (originating at impact point 50, 72) */}
+            <motion.ellipse
+              cx="50"
+              cy="72"
+              rx="12"
+              ry="5"
+              stroke="var(--color-brand-blue)"
+              strokeWidth="1.5"
+              animate={shockwaveAnimation}
+              transition={shockwaveTransition}
+              style={{ transformOrigin: "50px 72px" }}
+            />
+            <motion.ellipse
+              cx="50"
+              cy="72"
+              rx="12"
+              ry="5"
+              stroke="var(--color-brand-red)"
+              strokeWidth="1.2"
+              animate={shockwaveAnimation2}
+              transition={shockwaveTransition2}
+              style={{ transformOrigin: "50px 72px" }}
+            />
+
+            {/* Sound Block at y=72 */}
+            <rect
+              x="30"
+              y="72"
+              width="40"
+              height="6"
+              rx="2.5"
+              fill="var(--color-brand-dark)"
+            />
+
+            {/* Gavel Group (pivot point 20, 65) */}
+            <motion.g
+              animate={gavelAnimation}
+              transition={gavelTransition}
+              style={{ transformOrigin: "20px 65px" }}
+            >
+              {/* Handle */}
+              <line
+                x1="20"
+                y1="65"
+                x2="50"
+                y2="65"
+                stroke="var(--color-brand-dark)"
+                strokeWidth="4.5"
+                strokeLinecap="round"
+              />
+              {/* Head */}
+              <rect
+                x="43"
+                y="54"
+                width="14"
+                height="18"
+                rx="3.5"
+                fill="var(--color-brand-red)"
+              />
+              {/* Gold Ring Band on head */}
+              <rect
+                x="43"
+                y="61"
+                width="14"
+                height="4"
+                fill="#FAF9F5"
+                opacity="0.35"
+              />
+            </motion.g>
+          </svg>
         </motion.div>
 
         {/* Title */}

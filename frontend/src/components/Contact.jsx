@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, CheckCircle2, Clock } from './Icons';
+import TextReveal from './TextReveal';
+import Magnetic from './Magnetic';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -69,7 +71,7 @@ const Contact = () => {
             <div>
               <span className="text-xs font-bold uppercase tracking-widest text-brand-red">Consultation Desk</span>
               <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mt-3 mb-6 font-display">
-                Connect With Us
+                <TextReveal>Connect With Us</TextReveal>
               </h2>
               <p className="text-slate-600 text-sm md:text-base leading-relaxed mb-8">
                 Initiate a discussion. Whether you are seeking career placement coaching, arbitration counsel, corporate document reviews, or academic registrations, our legal secretariat is here to coordinate.
@@ -246,25 +248,27 @@ const Contact = () => {
                     </div>
 
                     {/* Submit Button */}
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="mt-2 w-full py-4 bg-brand-red hover:bg-brand-red/95 text-white rounded-xl font-bold flex items-center justify-center gap-2 transition-all duration-300 shadow-[0_4px_12px_rgba(185,28,28,0.15)] hover:scale-[1.01] text-xs uppercase tracking-wider"
-                      data-hover="true"
-                      data-hover-type="red"
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                          Submitting Case File...
-                        </>
-                      ) : (
-                        <>
-                          <Send size={15} className="stroke-[2.5]" />
-                          Submit Intake Form
-                        </>
-                      )}
-                    </button>
+                    <Magnetic range={25} strength={0.15} className="w-full mt-2">
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full py-4 bg-brand-red hover:bg-brand-red/95 text-white rounded-xl font-bold flex items-center justify-center gap-2 transition-all duration-300 shadow-[0_4px_12px_rgba(185,28,28,0.15)] hover:scale-[1.01] text-xs uppercase tracking-wider"
+                        data-hover="true"
+                        data-hover-type="invert"
+                      >
+                        {isSubmitting ? (
+                          <>
+                            <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                            Submitting Case File...
+                          </>
+                        ) : (
+                          <>
+                            <Send size={15} className="stroke-[2.5]" />
+                            Submit Intake Form
+                          </>
+                        )}
+                      </button>
+                    </Magnetic>
                   </motion.form>
                 ) : (
                   <motion.div
