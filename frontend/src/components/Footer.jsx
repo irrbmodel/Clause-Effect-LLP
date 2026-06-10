@@ -23,10 +23,12 @@ const Footer = () => {
           
           {/* Column 1: Monogram and Mission */}
           <div className="lg:col-span-5 flex flex-col items-start">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-linear-to-tr from-brand-blue to-brand-red flex items-center justify-center text-white">
-                <Scale size={16} />
-              </div>
+            <div className="flex items-center gap-2.5 mb-4">
+              <img 
+                src="/logo.png" 
+                alt="Clause & Effect Logo" 
+                className="w-8 h-8 object-contain" 
+              />
               <span className="font-display font-bold text-lg text-white">
                 CLAUSE <span className="text-brand-red">&</span> EFFECT
               </span>

@@ -65,13 +65,15 @@ const Navbar = () => {
           <a 
             href="#hero" 
             onClick={(e) => handleLinkClick(e, '#hero')}
-            className="flex items-center gap-2 group"
+            className="flex items-center gap-2.5 group"
             data-hover="true"
             data-hover-type="blue"
           >
-            <div className="w-10 h-10 rounded-xl bg-linear-to-tr from-brand-blue to-brand-red flex items-center justify-center text-white shadow-[0_0_15px_rgba(37,99,235,0.4)] transition-all duration-300 group-hover:rotate-12">
-              <Scale size={20} className="stroke-[2.5]" />
-            </div>
+            <img 
+              src="/logo.png" 
+              alt="Clause & Effect Logo" 
+              className="w-10 h-10 object-contain transition-all duration-300 group-hover:scale-105" 
+            />
             <span className="font-display font-bold text-xl tracking-tight text-white">
               CLAUSE <span className="text-brand-red">&</span> EFFECT
             </span>

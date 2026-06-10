@@ -122,8 +122,12 @@ const Hero = () => {
             <div className="absolute inset-4 rounded-full border border-dashed border-brand-blue/30 animate-[spin_60s_linear_infinite]" />
             <div className="absolute inset-8 rounded-full border border-brand-red/20 animate-[spin_40s_linear_infinite_reverse]" />
             
-            <div className="text-center z-10 px-6">
-              <Scale size={64} className="mx-auto text-brand-blue mb-4 filter drop-shadow-[0_0_15px_rgba(37,99,235,0.5)]" />
+            <div className="text-center z-10 px-6 flex flex-col items-center">
+              <img 
+                src="/logo.png" 
+                alt="Clause & Effect Logo" 
+                className="w-20 h-20 object-contain mb-4 filter drop-shadow-[0_0_15px_rgba(37,99,235,0.3)]" 
+              />
               <div className="font-display font-bold text-lg text-white">CLAUSE & EFFECT</div>
               <div className="text-xs text-slate-500 uppercase tracking-widest mt-1">Established Practice</div>
             </div>
