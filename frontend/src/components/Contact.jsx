@@ -282,7 +282,7 @@ const Contact = () => {
                       Case Intake Successful
                     </h3>
                     <p className="text-slate-500 text-sm max-w-sm leading-relaxed mb-6">
-                      Your files and request have been logged with the Clause & Effect Secretariat. An advisor will contact you within 24 business hours with calendar invites.
+                      Your files and request have been logged with the Clause & Effect LLP Secretariat. An advisor will contact you within 24 business hours with calendar invites.
                     </p>
                     <button
                       onClick={() => setIsSubmitted(false)}

@@ -71,7 +71,7 @@ const StudentPortal = () => {
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-bold uppercase tracking-widest text-brand-red">Clause & Effect Academy</span>
+          <span className="text-xs font-bold uppercase tracking-widest text-brand-red">Clause & Effect LLP Academy</span>
           <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mt-3 mb-6 font-display">
             Interactive Student Portal
           </h2>
@@ -191,7 +191,7 @@ const StudentPortal = () => {
                   <div className="flex items-center justify-center gap-1.5 mb-1.5">
                     <GraduationCap size={20} className="text-brand-blue" />
                     <span className="text-[9px] font-bold tracking-widest text-[#8C8358] uppercase">
-                      Clause & Effect Academy
+                      Clause & Effect LLP Academy
                     </span>
                   </div>
                   <h3 className="text-xl md:text-2xl font-bold font-display text-slate-800 tracking-wide">

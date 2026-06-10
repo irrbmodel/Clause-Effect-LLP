@@ -63,7 +63,7 @@ const Director = () => {
             <div className="relative mb-8">
               <Quote className="absolute -top-8 -left-8 text-black/3 w-16 h-16 -z-10" />
               <p className="text-slate-700 text-base md:text-lg leading-relaxed italic font-serif">
-                "In contract architecture, we frequently observe organizations identifying problems only after standard clauses fail. At Clause & Effect, we reverse this hierarchy. We build precise contract clauses designed to proactively achieve the strategic operational effects our clients require."
+                "In contract architecture, we frequently observe organizations identifying problems only after standard clauses fail. At Clause & Effect LLP, we reverse this hierarchy. We build precise contract clauses designed to proactively achieve the strategic operational effects our clients require."
               </p>
             </div>
 

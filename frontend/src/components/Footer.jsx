@@ -113,7 +113,7 @@ const Footer = () => {
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="rounded-lg grayscale-[30%] group-hover:grayscale-0 transition-all duration-300"
+                className="rounded-lg grayscale-30 group-hover:grayscale-0 transition-all duration-300"
               />
             </div>
             <a
