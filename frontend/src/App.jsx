@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import InteractiveSimulator from './components/InteractiveSimulator';
@@ -9,43 +10,60 @@ import Team from './components/Team';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import CustomCursor from './components/CustomCursor';
+import SmoothScroll from './components/SmoothScroll';
+import Preloader from './components/Preloader';
 
 const App = () => {
+  const [preloaderComplete, setPreloaderComplete] = useState(false);
+
   return (
-    <div className="relative min-h-screen bg-brand-darker text-slate-100 overflow-hidden font-sans antialiased">
-      {/* Dynamic Cursor Layer */}
-      <CustomCursor />
+    <>
+      <AnimatePresence mode="wait">
+        {!preloaderComplete && (
+          <Preloader onComplete={() => setPreloaderComplete(true)} />
+        )}
+      </AnimatePresence>
 
-      {/* Navigation Headers */}
-      <Navbar />
+      <SmoothScroll>
+        <div className="relative min-h-screen bg-brand-darker text-slate-100 overflow-hidden font-sans antialiased">
+          {/* Animated Editorial Noise overlay */}
+          <div className="noise-overlay" />
 
-      {/* Content Sections */}
-      <main>
-        {/* Hero Banner */}
-        <Hero />
+          {/* Dynamic Cursor Layer */}
+          <CustomCursor />
 
-        {/* Clause & Effect Simulator (Visualizing drafting and results) */}
-        <InteractiveSimulator />
+          {/* Navigation Headers */}
+          <Navbar preloaderComplete={preloaderComplete} />
 
-        {/* Core Services Divisions */}
-        <Services />
+          {/* Content Sections */}
+          <main>
+            {/* Hero Banner */}
+            <Hero preloaderComplete={preloaderComplete} />
 
-        {/* Course Portal & Digital Certificate Generator */}
-        <StudentPortal />
+            {/* Clause & Effect Simulator (Visualizing drafting and results) */}
+            <InteractiveSimulator />
 
-        {/* Director Address */}
-        <Director />
+            {/* Core Services Divisions */}
+            <Services />
 
-        {/* Partners & Board of Advisors */}
-        <Team />
+            {/* Course Portal & Digital Certificate Generator */}
+            <StudentPortal />
 
-        {/* Intake consultation form */}
-        <Contact />
-      </main>
+            {/* Director Address */}
+            <Director />
 
-      {/* Footer & Bar council compliance disclaimer */}
-      <Footer />
-    </div>
+            {/* Partners & Board of Advisors */}
+            <Team />
+
+            {/* Intake consultation form */}
+            <Contact />
+          </main>
+
+          {/* Footer & Bar council compliance disclaimer */}
+          <Footer />
+        </div>
+      </SmoothScroll>
+    </>
   );
 };
 

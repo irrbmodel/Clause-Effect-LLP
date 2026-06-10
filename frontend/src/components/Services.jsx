@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { GraduationCap, Briefcase, Award, Landmark, ArrowRight, ShieldCheck, FileCheck, Compass, CheckCircle2 } from './Icons';
+import TextReveal from './TextReveal';
+import Magnetic from './Magnetic';
 
 const servicesData = [
   {
@@ -81,7 +83,9 @@ const Services = () => {
           <div className="max-w-xl text-left">
             <span className="text-xs font-bold uppercase tracking-widest text-brand-blue">Core Capabilities</span>
             <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mt-3 font-display">
-              Tailored Legal Solutions & Career Pathways
+              <TextReveal>Tailored Legal Solutions</TextReveal>
+              <br />
+              <TextReveal>& Career Pathways</TextReveal>
             </h2>
           </div>
           <p className="text-slate-600 text-base md:max-w-sm text-left leading-relaxed">
@@ -192,14 +196,16 @@ const Services = () => {
                             {service.highlight}
                           </p>
                         </div>
-                        <a
-                          href="#contact"
-                          className="px-5 py-3 text-xs font-bold bg-brand-red hover:bg-brand-red/95 text-white rounded-xl flex items-center gap-1.5 transition-colors duration-200 uppercase tracking-wider shadow-sm"
-                          data-hover="true"
-                          data-hover-type="red"
-                        >
-                          Book Service <ArrowRight size={13} className="stroke-[2.5]" />
-                        </a>
+                        <Magnetic range={30} strength={0.25}>
+                          <a
+                            href="#contact"
+                            className="px-5 py-3 text-xs font-bold bg-brand-red hover:bg-brand-red/95 text-white rounded-xl flex items-center gap-1.5 transition-all duration-200 uppercase tracking-wider shadow-sm"
+                            data-hover="true"
+                            data-hover-type="invert"
+                          >
+                            Book Service <ArrowRight size={13} className="stroke-[2.5]" />
+                          </a>
+                        </Magnetic>
                       </div>
                     </motion.div>
                   );

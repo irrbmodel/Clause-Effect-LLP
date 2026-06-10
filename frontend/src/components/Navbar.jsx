@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
 import { Menu, X, ArrowUpRight, Scale } from './Icons';
+import Magnetic from './Magnetic';
 
 const navLinks = [
   { name: 'About', href: '#about' },
@@ -10,7 +11,7 @@ const navLinks = [
   { name: 'Team & Advisors', href: '#team' },
 ];
 
-const Navbar = () => {
+const Navbar = ({ preloaderComplete }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { scrollYProgress } = useScroll();
@@ -57,57 +58,62 @@ const Navbar = () => {
             : 'bg-transparent py-6 border-b border-transparent'
         }`}
         initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.5 }}
+        animate={preloaderComplete !== false ? { y: 0 } : { y: -100 }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
           {/* Logo */}
-          <a 
-            href="#hero" 
-            onClick={(e) => handleLinkClick(e, '#hero')}
-            className="flex items-center gap-2.5 group"
-            data-hover="true"
-            data-hover-type="blue"
-          >
-            <img 
-              src="/logo.png" 
-              alt="Clause & Effect Logo" 
-              className="w-10 h-10 rounded-full object-cover transition-all duration-300 group-hover:scale-105" 
-            />
-            <span className="font-display font-extrabold text-xl tracking-tight text-brand-dark">
-              CLAUSE <span className="text-brand-red">&</span> EFFECT
-            </span>
-          </a>
+          <Magnetic range={30} strength={0.3}>
+            <a 
+              href="#hero" 
+              onClick={(e) => handleLinkClick(e, '#hero')}
+              className="flex items-center gap-2.5 group"
+              data-hover="true"
+              data-hover-type="invert"
+            >
+              <img 
+                src="/logo.png" 
+                alt="Clause & Effect Logo" 
+                className="w-10 h-10 rounded-full object-cover transition-all duration-300 group-hover:scale-105" 
+              />
+              <span className="font-display font-extrabold text-xl tracking-tight text-brand-dark">
+                CLAUSE <span className="text-brand-red">&</span> EFFECT
+              </span>
+            </a>
+          </Magnetic>
 
           {/* Desktop Links */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={(e) => handleLinkClick(e, link.href)}
-                className="text-xs font-semibold uppercase tracking-wider text-slate-600 hover:text-slate-900 transition-colors duration-200 relative group py-2"
-                data-hover="true"
-                data-hover-type="blue"
-              >
-                {link.name}
-                <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-brand-blue transition-all duration-300 group-hover:w-full" />
-              </a>
+              <Magnetic key={link.name} range={20} strength={0.2}>
+                <a
+                  href={link.href}
+                  onClick={(e) => handleLinkClick(e, link.href)}
+                  className="text-xs font-semibold uppercase tracking-wider text-slate-600 hover:text-slate-900 transition-colors duration-200 relative group py-2"
+                  data-hover="true"
+                  data-hover-type="invert"
+                >
+                  {link.name}
+                  <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-brand-blue transition-all duration-300 group-hover:w-full" />
+                </a>
+              </Magnetic>
             ))}
           </div>
 
           {/* Consultation Button */}
           <div className="hidden md:flex items-center gap-4">
-            <a
-              href="#contact"
-              onClick={(e) => handleLinkClick(e, '#contact')}
-              className="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-white border-2 border-brand-red/50 hover:border-brand-red hover:bg-brand-red hover:text-white text-brand-red flex items-center gap-1.5 transition-all duration-300 shadow-[0_4px_12px_rgba(185,28,28,0.05)] hover:shadow-[0_4px_20px_rgba(185,28,28,0.15)] cursor-pointer"
-              data-hover="true"
-              data-hover-type="red"
-            >
-              Consult Desk
-              <ArrowUpRight size={13} className="stroke-[2.5]" />
-            </a>
+            <Magnetic range={35} strength={0.25}>
+              <a
+                href="#contact"
+                onClick={(e) => handleLinkClick(e, '#contact')}
+                className="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-white border-2 border-brand-red/50 hover:border-brand-red hover:bg-brand-red hover:text-white text-brand-red flex items-center gap-1.5 transition-all duration-300 shadow-[0_4px_12px_rgba(185,28,28,0.05)] hover:shadow-[0_4px_20px_rgba(185,28,28,0.15)] cursor-pointer"
+                data-hover="true"
+                data-hover-type="invert"
+              >
+                Consult Desk
+                <ArrowUpRight size={13} className="stroke-[2.5]" />
+              </a>
+            </Magnetic>
           </div>
 
           {/* Mobile Menu Button */}
