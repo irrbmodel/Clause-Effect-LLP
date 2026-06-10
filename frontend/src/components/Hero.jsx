@@ -59,21 +59,25 @@ const Hero = () => {
           {/* Badge */}
           <motion.div 
             variants={itemVariants}
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-black/[0.06] text-[10px] font-bold uppercase tracking-widest text-slate-600 mb-6 shadow-sm"
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-black/6 text-[10px] font-bold uppercase tracking-widest text-slate-600 mb-6 shadow-sm"
           >
             <Sparkles size={11} className="text-brand-blue animate-pulse" />
             Clause & Effect LLP
           </motion.div>
 
           {/* Headline */}
-          <motion.h1 
-            variants={itemVariants}
-            className="text-4xl md:text-6xl lg:text-7.5xl font-extrabold tracking-tight leading-[1.05] text-slate-900 mb-6 font-display"
-          >
-            Precision in <span className="text-brand-blue italic font-medium font-serif">Drafting</span>.
-            <br />
-            Power in <span className="text-brand-red italic font-medium font-serif">Execution</span>.
-          </motion.h1>
+          <div className="overflow-hidden mb-6 py-2">
+            <motion.h1 
+              initial={{ y: "110%", rotate: 2 }}
+              animate={{ y: 0, rotate: 0 }}
+              transition={{ type: 'spring', damping: 20, stiffness: 70, delay: 0.3 }}
+              className="text-4xl md:text-6xl lg:text-7.5xl font-extrabold tracking-tight leading-[1.05] text-slate-900 font-display"
+            >
+              Precision in <span className="text-brand-blue italic font-medium font-serif">Drafting</span>.
+              <br />
+              Power in <span className="text-brand-red italic font-medium font-serif">Execution</span>.
+            </motion.h1>
+          </div>
 
           {/* Subtitle */}
           <motion.p 
@@ -99,7 +103,7 @@ const Hero = () => {
             
             <a
               href="#student-portal"
-              className="px-8 py-4 rounded-xl font-bold bg-white border border-black/[0.08] hover:border-black/15 text-slate-800 flex items-center justify-center gap-2 transition-all duration-300 shadow-sm text-center w-full sm:w-auto text-xs uppercase tracking-wider hover:bg-slate-50"
+              className="px-8 py-4 rounded-xl font-bold bg-white border border-black/8 hover:border-black/15 text-slate-800 flex items-center justify-center gap-2 transition-all duration-300 shadow-sm text-center w-full sm:w-auto text-xs uppercase tracking-wider hover:bg-slate-50"
               data-hover="true"
               data-hover-type="text"
               data-hover-text="GO"
@@ -113,7 +117,7 @@ const Hero = () => {
         <div className="lg:col-span-5 relative h-[450px] flex items-center justify-center">
           {/* Main Visual Core */}
           <motion.div 
-            className="relative w-72 h-72 rounded-full border border-black/[0.04] bg-white flex items-center justify-center shadow-[0_20px_50px_rgba(15,23,42,0.05)]"
+            className="relative w-72 h-72 rounded-full border border-black/4 bg-white flex items-center justify-center shadow-[0_20px_50px_rgba(15,23,42,0.05)]"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1, ease: 'easeOut' }}
@@ -137,7 +141,8 @@ const Hero = () => {
           <motion.div
             variants={floatVariants(0)}
             animate="animate"
-            className="absolute top-4 left-4 sm:-left-6 bg-white border border-black/[0.04] p-4 rounded-2xl flex items-center gap-4 max-w-[200px] shadow-[0_15px_30px_-5px_rgba(15,23,42,0.05)] hover:shadow-md transition-shadow duration-300"
+            whileHover={{ scale: 1.08, rotate: -2, y: -15, zIndex: 30 }}
+            className="absolute top-4 left-4 sm:-left-6 bg-white border border-black/4 p-4 rounded-2xl flex items-center gap-4 max-w-[200px] shadow-[0_15px_30px_-5px_rgba(15,23,42,0.05)] cursor-pointer transition-shadow duration-300"
           >
             <div className="w-10 h-10 rounded-lg bg-brand-blue/5 border border-brand-blue/10 flex items-center justify-center text-brand-blue">
               <Gavel size={20} />
@@ -152,7 +157,8 @@ const Hero = () => {
           <motion.div
             variants={floatVariants(1.5)}
             animate="animate"
-            className="absolute bottom-8 left-2 sm:-left-2 bg-white border border-black/[0.04] p-4 rounded-2xl flex items-center gap-4 max-w-[200px] shadow-[0_15px_30px_-5px_rgba(15,23,42,0.05)] hover:shadow-md transition-shadow duration-300"
+            whileHover={{ scale: 1.08, rotate: 2, y: -15, zIndex: 30 }}
+            className="absolute bottom-8 left-2 sm:-left-2 bg-white border border-black/4 p-4 rounded-2xl flex items-center gap-4 max-w-[200px] shadow-[0_15px_30px_-5px_rgba(15,23,42,0.05)] cursor-pointer transition-shadow duration-300"
           >
             <div className="w-10 h-10 rounded-lg bg-brand-red/5 border border-brand-red/10 flex items-center justify-center text-brand-red">
               <GraduationCap size={20} />
@@ -167,7 +173,8 @@ const Hero = () => {
           <motion.div
             variants={floatVariants(0.8)}
             animate="animate"
-            className="absolute top-1/2 -right-2 sm:-right-8 -translate-y-1/2 bg-white border border-black/[0.04] p-4 rounded-2xl flex items-center gap-4 max-w-[200px] shadow-[0_15px_30px_-5px_rgba(15,23,42,0.05)] hover:shadow-md transition-shadow duration-300"
+            whileHover={{ scale: 1.08, rotate: -1, y: -15, zIndex: 30 }}
+            className="absolute top-1/2 -right-2 sm:-right-8 -translate-y-1/2 bg-white border border-black/4 p-4 rounded-2xl flex items-center gap-4 max-w-[200px] shadow-[0_15px_30px_-5px_rgba(15,23,42,0.05)] cursor-pointer transition-shadow duration-300"
           >
             <div className="w-10 h-10 rounded-lg bg-slate-50 border border-slate-200/50 flex items-center justify-center text-slate-700">
               <Scale size={20} />

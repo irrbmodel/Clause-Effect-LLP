@@ -55,7 +55,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 relative overflow-hidden bg-brand-darker grid-bg border-b border-black/[0.04]">
+    <section id="contact" className="py-24 relative overflow-hidden bg-brand-darker grid-bg border-b border-black/4">
       {/* Background Soft Glows */}
       <div className="glow-red w-[500px] h-[500px] top-1/2 left-0 opacity-15" />
       <div className="glow-blue w-[400px] h-[400px] -bottom-20 -right-20 opacity-15" />
@@ -116,7 +116,7 @@ const Contact = () => {
             </div>
 
             {/* Quick response note */}
-            <div className="mt-12 p-4 rounded-2xl bg-white border border-black/[0.04] flex items-center gap-3 shadow-xs">
+            <div className="mt-12 p-4 rounded-2xl bg-white border border-black/4 flex items-center gap-3 shadow-xs">
               <Clock className="text-brand-blue shrink-0 animate-pulse" size={20} />
               <div className="text-xs text-slate-500 font-medium">
                 We guarantee a review and follow-up response within 24 business hours.
@@ -126,7 +126,7 @@ const Contact = () => {
 
           {/* Right Panel: Interactive Form */}
           <div className="lg:col-span-7">
-            <div className="bg-white border border-black/[0.04] rounded-3xl p-6 md:p-8 relative h-full flex flex-col justify-center shadow-[0_25px_60px_-15px_rgba(15,23,42,0.04)]">
+            <div className="bg-white border border-black/4 rounded-3xl p-6 md:p-8 relative h-full flex flex-col justify-center shadow-[0_25px_60px_-15px_rgba(15,23,42,0.04)]">
               
               <AnimatePresence mode="wait">
                 {!isSubmitted ? (
@@ -150,7 +150,7 @@ const Contact = () => {
                           value={formData.name}
                           onChange={handleChange}
                           className={`w-full px-4 py-3 rounded-xl bg-slate-50 border ${
-                            errors.name ? 'border-brand-red' : 'border-black/[0.06] focus:border-brand-blue focus:bg-white'
+                            errors.name ? 'border-brand-red' : 'border-black/6 focus:border-brand-blue focus:bg-white'
                           } text-slate-800 text-sm focus:outline-none transition-all duration-300`}
                           placeholder="Your Name"
                           data-hover="true"
@@ -172,7 +172,7 @@ const Contact = () => {
                           value={formData.email}
                           onChange={handleChange}
                           className={`w-full px-4 py-3 rounded-xl bg-slate-50 border ${
-                            errors.email ? 'border-brand-red' : 'border-black/[0.06] focus:border-brand-blue focus:bg-white'
+                            errors.email ? 'border-brand-red' : 'border-black/6 focus:border-brand-blue focus:bg-white'
                           } text-slate-800 text-sm focus:outline-none transition-all duration-300`}
                           placeholder="you@example.com"
                           data-hover="true"
@@ -195,7 +195,7 @@ const Contact = () => {
                           name="phone"
                           value={formData.phone}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-black/[0.06] focus:border-brand-blue focus:bg-white text-slate-800 text-sm focus:outline-none transition-all duration-300"
+                          className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-black/6 focus:border-brand-blue focus:bg-white text-slate-800 text-sm focus:outline-none transition-all duration-300"
                           placeholder="+91 XXXXX XXXXX"
                           data-hover="true"
                           data-hover-type="blue"
@@ -211,7 +211,7 @@ const Contact = () => {
                           name="service"
                           value={formData.service}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-black/[0.06] focus:border-brand-blue focus:bg-white text-slate-800 text-sm focus:outline-none transition-all duration-300 appearance-none cursor-pointer"
+                          className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-black/6 focus:border-brand-blue focus:bg-white text-slate-800 text-sm focus:outline-none transition-all duration-300 appearance-none cursor-pointer"
                           data-hover="true"
                           data-hover-type="blue"
                         >
@@ -234,7 +234,7 @@ const Contact = () => {
                         value={formData.message}
                         onChange={handleChange}
                         className={`w-full px-4 py-3 rounded-xl bg-slate-50 border ${
-                          errors.message ? 'border-brand-red' : 'border-black/[0.06] focus:border-brand-blue focus:bg-white'
+                          errors.message ? 'border-brand-red' : 'border-black/6 focus:border-brand-blue focus:bg-white'
                         } text-slate-800 text-sm focus:outline-none transition-all duration-300 resize-none`}
                         placeholder="Briefly describe what service or advice you are seeking..."
                         data-hover="true"

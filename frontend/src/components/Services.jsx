@@ -69,7 +69,7 @@ const Services = () => {
   const [activeService, setActiveService] = useState('career');
 
   return (
-    <section id="services" className="py-24 relative overflow-hidden bg-brand-darker grid-bg border-b border-black/[0.04]">
+    <section id="services" className="py-24 relative overflow-hidden bg-brand-darker grid-bg border-b border-black/4">
       {/* Background Subtle Glows */}
       <div className="glow-red w-[500px] h-[500px] top-10 right-0 opacity-20" />
       <div className="glow-blue w-[400px] h-[400px] bottom-0 left-0 opacity-20" />
@@ -98,13 +98,18 @@ const Services = () => {
               const isActive = service.id === activeService;
               const Icon = service.icon;
               return (
-                <div
+                <motion.div
                   key={service.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-50px' }}
+                  transition={{ duration: 0.5, delay: servicesData.findIndex(s => s.id === service.id) * 0.08 }}
+                  whileHover={{ y: -4, scale: 1.01 }}
                   onClick={() => setActiveService(service.id)}
                   className={`p-6 rounded-2xl border transition-all duration-300 cursor-pointer flex gap-5 items-start ${
                     isActive 
                       ? 'bg-white border-brand-blue/30 shadow-[0_10px_25px_-5px_rgba(29,78,216,0.06)]' 
-                      : 'bg-white/40 border-black/[0.03] hover:border-black/[0.08] hover:bg-white'
+                      : 'bg-white/40 border-black/3 hover:border-black/8 hover:bg-white'
                   }`}
                   data-hover="true"
                   data-hover-type={isActive ? 'red' : 'blue'}
@@ -119,14 +124,14 @@ const Services = () => {
                     <h3 className="font-bold text-slate-800 text-lg md:text-xl mt-1 mb-2 font-sans">{service.title}</h3>
                     <p className="text-xs md:text-sm text-slate-500 line-clamp-2 leading-relaxed">{service.description}</p>
                   </div>
-                </div>
+                </motion.div>
               );
             })}
           </div>
 
           {/* Details Pane */}
           <div className="lg:col-span-6">
-            <div className="bg-white rounded-3xl border border-black/[0.04] p-8 h-full flex flex-col justify-between text-left relative overflow-hidden shadow-[0_25px_60px_-15px_rgba(15,23,42,0.04)]">
+            <div className="bg-white rounded-3xl border border-black/4 p-8 h-full flex flex-col justify-between text-left relative overflow-hidden shadow-[0_25px_60px_-15px_rgba(15,23,42,0.04)]">
               <div className="absolute top-0 right-0 w-32 h-32 bg-linear-to-bl from-brand-blue/5 to-transparent rounded-tr-3xl pointer-events-none" />
               
               <AnimatePresence mode="wait">
@@ -162,7 +167,7 @@ const Services = () => {
                           {service.description}
                         </p>
 
-                        <div className="border-t border-black/[0.04] pt-6">
+                        <div className="border-t border-black/4 pt-6">
                           <h5 className="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-4">
                             Key Areas of Competence
                           </h5>
@@ -178,7 +183,7 @@ const Services = () => {
                       </div>
 
                       {/* Bottom action panel */}
-                      <div className="bg-slate-50 border border-black/[0.03] rounded-2xl p-5 mt-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                      <div className="bg-slate-50 border border-black/3 rounded-2xl p-5 mt-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
                         <div>
                           <div className="text-[9px] font-bold text-brand-blue uppercase tracking-widest mb-1">
                             Proven Impact

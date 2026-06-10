@@ -4,7 +4,7 @@ import { Quote, ShieldCheck, Scale, Award } from './Icons';
 
 const Director = () => {
   return (
-    <section id="director" className="py-24 relative overflow-hidden bg-brand-darker grid-bg border-b border-black/[0.04]">
+    <section id="director" className="py-24 relative overflow-hidden bg-brand-darker grid-bg border-b border-black/4">
       {/* Background Soft Glow */}
       <div className="glow-red w-[450px] h-[450px] bottom-0 left-0 opacity-20" />
       
@@ -15,7 +15,7 @@ const Director = () => {
           {/* Left: Monogram Frame / Styled Visual Portrait */}
           <div className="lg:col-span-5 relative flex items-center justify-center">
             <motion.div 
-              className="relative w-80 h-96 rounded-3xl overflow-hidden border border-black/[0.04] bg-white shadow-[0_30px_70px_-15px_rgba(15,23,42,0.06)] flex flex-col justify-between p-8 group"
+              className="relative w-80 h-96 rounded-3xl overflow-hidden border border-black/4 bg-white shadow-[0_30px_70px_-15px_rgba(15,23,42,0.06)] flex flex-col justify-between p-8 group"
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: '-100px' }}
@@ -31,7 +31,7 @@ const Director = () => {
               </div>
 
               {/* Brief credentials on visual card */}
-              <div className="text-center z-10 border-t border-black/[0.04] pt-6 mt-auto">
+              <div className="text-center z-10 border-t border-black/4 pt-6 mt-auto">
                 <h4 className="text-lg font-bold text-slate-800 tracking-wide font-sans">J. R. Chowdhury</h4>
                 <p className="text-[10px] text-brand-red font-bold uppercase tracking-widest mt-1">
                   Managing Director, Advocate
@@ -43,7 +43,7 @@ const Director = () => {
             </motion.div>
 
             {/* Behind Background floating card */}
-            <div className="absolute -bottom-6 -right-4 bg-white/90 border border-black/[0.04] backdrop-blur-md rounded-2xl p-4 flex items-center gap-3 shadow-md z-20">
+            <div className="absolute -bottom-6 -right-4 bg-white/90 border border-black/4 backdrop-blur-md rounded-2xl p-4 flex items-center gap-3 shadow-md z-20">
               <Award className="text-brand-blue" size={24} />
               <div className="text-left">
                 <div className="text-xs font-bold text-slate-800">18+ Years</div>
@@ -61,14 +61,14 @@ const Director = () => {
 
             {/* Quoted Message */}
             <div className="relative mb-8">
-              <Quote className="absolute -top-8 -left-8 text-black/[0.03] w-16 h-16 -z-10" />
+              <Quote className="absolute -top-8 -left-8 text-black/3 w-16 h-16 -z-10" />
               <p className="text-slate-700 text-base md:text-lg leading-relaxed italic font-serif">
                 "In contract architecture, we frequently observe organizations identifying problems only after standard clauses fail. At Clause & Effect, we reverse this hierarchy. We build precise contract clauses designed to proactively achieve the strategic operational effects our clients require."
               </p>
             </div>
 
             {/* Operational Commitments */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6 border-t border-black/[0.04]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6 border-t border-black/4">
               <div className="flex gap-3">
                 <ShieldCheck size={24} className="text-brand-red shrink-0 mt-1" />
                 <div>

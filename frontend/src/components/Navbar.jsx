@@ -53,7 +53,7 @@ const Navbar = () => {
       <motion.nav
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
           isScrolled 
-            ? 'bg-brand-card/85 backdrop-blur-md border-b border-black/[0.04] py-4 shadow-sm' 
+            ? 'bg-brand-card/85 backdrop-blur-md border-b border-black/4 py-4 shadow-sm' 
             : 'bg-transparent py-6 border-b border-transparent'
         }`}
         initial={{ y: -100 }}
@@ -101,7 +101,7 @@ const Navbar = () => {
             <a
               href="#contact"
               onClick={(e) => handleLinkClick(e, '#contact')}
-              className="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider glass hover:bg-brand-red/5 border-brand-red/20 hover:border-brand-red text-brand-red flex items-center gap-1.5 transition-all duration-300 shadow-[0_4px_12px_rgba(185,28,28,0.02)] hover:shadow-[0_4px_20px_rgba(185,28,28,0.1)]"
+              className="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-white border-2 border-brand-red/50 hover:border-brand-red hover:bg-brand-red hover:text-white text-brand-red flex items-center gap-1.5 transition-all duration-300 shadow-[0_4px_12px_rgba(185,28,28,0.05)] hover:shadow-[0_4px_20px_rgba(185,28,28,0.15)] cursor-pointer"
               data-hover="true"
               data-hover-type="red"
             >

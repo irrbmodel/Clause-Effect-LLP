@@ -33,6 +33,8 @@ const StudentPortal = () => {
   const [studentName, setStudentName] = useState('Jane Doe');
   const [selectedCourse, setSelectedCourse] = useState('drafting');
   const [isGenerating, setIsGenerating] = useState(false);
+  const [rotateX, setRotateX] = useState(0);
+  const [rotateY, setRotateY] = useState(0);
 
   const activeCourse = courses.find(c => c.id === selectedCourse);
 
@@ -44,8 +46,24 @@ const StudentPortal = () => {
     }, 1000);
   };
 
+  const handleMouseMove = (e) => {
+    const card = e.currentTarget;
+    const box = card.getBoundingClientRect();
+    const x = e.clientX - box.left - box.width / 2;
+    const y = e.clientY - box.top - box.height / 2;
+    
+    // Max tilt 15 degrees
+    setRotateX(-y / (box.height / 30));
+    setRotateY(x / (box.width / 30));
+  };
+
+  const handleMouseLeave = () => {
+    setRotateX(0);
+    setRotateY(0);
+  };
+
   return (
-    <section id="student-portal" className="py-24 relative overflow-hidden bg-brand-darker border-b border-black/[0.04]">
+    <section id="student-portal" className="py-24 relative overflow-hidden bg-brand-darker border-b border-black/4">
       {/* Background soft lighting */}
       <div className="glow-blue w-[500px] h-[500px] -top-20 -right-20 opacity-20" />
       
@@ -69,7 +87,7 @@ const StudentPortal = () => {
           <div className="lg:col-span-5 flex flex-col justify-between gap-6">
             
             {/* Academy Quick Stats */}
-            <div className="bg-white border border-black/[0.04] p-6 rounded-3xl flex flex-col gap-4 text-left shadow-[0_10px_30px_rgba(15,23,42,0.02)]">
+            <div className="bg-white border border-black/4 p-6 rounded-3xl flex flex-col gap-4 text-left shadow-[0_10px_30px_rgba(15,23,42,0.02)]">
               <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
                 Academy Enrollment Stats
               </span>
@@ -90,7 +108,7 @@ const StudentPortal = () => {
             </div>
 
             {/* Academy Course Picker */}
-            <div className="bg-white border border-black/[0.04] p-6 rounded-3xl flex flex-col gap-4 text-left shadow-[0_10px_30px_rgba(15,23,42,0.02)]">
+            <div className="bg-white border border-black/4 p-6 rounded-3xl flex flex-col gap-4 text-left shadow-[0_10px_30px_rgba(15,23,42,0.02)]">
               <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
                 1. Select Academic Track
               </span>
@@ -102,7 +120,7 @@ const StudentPortal = () => {
                     className={`p-3.5 rounded-xl border text-left flex justify-between items-center transition-all duration-300 ${
                       selectedCourse === course.id
                         ? 'bg-brand-blue/5 border-brand-blue/30 text-slate-800 font-semibold shadow-xs'
-                        : 'bg-slate-50 border-black/[0.03] text-slate-500 hover:border-black/[0.08] hover:text-slate-800 hover:bg-slate-100/50'
+                        : 'bg-slate-50 border-black/3 text-slate-500 hover:border-black/8 hover:text-slate-800 hover:bg-slate-100/50'
                     }`}
                     data-hover="true"
                     data-hover-type="blue"
@@ -120,7 +138,7 @@ const StudentPortal = () => {
             </div>
 
             {/* Name Input Widget */}
-            <div className="bg-white border border-black/[0.04] p-6 rounded-3xl flex flex-col gap-4 text-left shadow-[0_10px_30px_rgba(15,23,42,0.02)]">
+            <div className="bg-white border border-black/4 p-6 rounded-3xl flex flex-col gap-4 text-left shadow-[0_10px_30px_rgba(15,23,42,0.02)]">
               <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
                 2. Input Graduation Name
               </span>
@@ -130,7 +148,7 @@ const StudentPortal = () => {
                 onChange={(e) => setStudentName(e.target.value)}
                 maxLength={25}
                 placeholder="Enter Full Name..."
-                className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-black/[0.08] focus:border-brand-red focus:bg-white text-slate-800 text-sm focus:outline-none transition-all duration-300"
+                className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-black/8 focus:border-brand-red focus:bg-white text-slate-800 text-sm focus:outline-none transition-all duration-300"
                 data-hover="true"
                 data-hover-type="red"
               />
@@ -143,12 +161,20 @@ const StudentPortal = () => {
 
           {/* Right Panel: Premium Dynamic Certificate Renderer */}
           <div className="lg:col-span-7">
-            <div className="bg-white border border-black/[0.04] rounded-3xl p-6 md:p-8 flex flex-col items-center justify-between h-full min-h-[450px] shadow-[0_25px_60px_-15px_rgba(15,23,42,0.04)]">
+            <div className="bg-white border border-black/4 rounded-3xl p-6 md:p-8 flex flex-col items-center justify-between h-full min-h-[450px] shadow-[0_25px_60px_-15px_rgba(15,23,42,0.04)]">
               
               {/* Interactive Certificate View */}
-              <div 
-                className="relative w-full aspect-[1.414/1] bg-[#FAF8F2] border-8 border-slate-200/80 shadow-[0_15px_40px_rgba(15,23,42,0.06)] rounded-lg p-5 md:p-8 flex flex-col justify-between items-center text-center select-none overflow-hidden print:bg-white print:text-black print:border-black"
+              <motion.div 
+                className="relative w-full aspect-[1.414/1] bg-[#FAF8F2] border-8 border-slate-200/80 shadow-[0_15px_40px_rgba(15,23,42,0.06)] rounded-lg p-5 md:p-8 flex flex-col justify-between items-center text-center select-none overflow-hidden print:bg-white print:text-black print:border-black cursor-grab active:cursor-grabbing"
                 id="certificate-print-area"
+                onMouseMove={handleMouseMove}
+                onMouseLeave={handleMouseLeave}
+                animate={{
+                  rotateX: rotateX,
+                  rotateY: rotateY,
+                  transformPerspective: 1000,
+                }}
+                transition={{ type: 'spring', damping: 25, stiffness: 200, mass: 0.5 }}
               >
                 {/* Thin double border for document feel */}
                 <div className="absolute inset-2 border border-[#E3DFC9] pointer-events-none" />
@@ -215,7 +241,7 @@ const StudentPortal = () => {
                   </div>
                 </div>
 
-              </div>
+              </motion.div>
 
               {/* Action Buttons */}
               <div className="w-full flex items-center justify-center gap-4 mt-6">

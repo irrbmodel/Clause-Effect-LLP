@@ -74,7 +74,7 @@ const InteractiveSimulator = () => {
   const activeClause = clausesData.find(c => c.id === selectedId);
 
   return (
-    <section id="about" className="py-24 relative overflow-hidden bg-brand-darker border-b border-black/[0.04]">
+    <section id="about" className="py-24 relative overflow-hidden bg-brand-darker border-b border-black/4">
       {/* Background Soft Glows */}
       <div className="glow-blue w-[400px] h-[400px] top-1/2 left-0 opacity-25" />
       
@@ -108,7 +108,7 @@ const InteractiveSimulator = () => {
                   className={`text-left p-5 rounded-2xl transition-all duration-300 border ${
                     isSelected 
                       ? 'bg-white border-brand-blue/30 shadow-[0_10px_25px_-5px_rgba(29,78,216,0.06)]' 
-                      : 'bg-white/40 border-black/[0.03] hover:border-black/[0.08] hover:bg-white'
+                      : 'bg-white/40 border-black/3 hover:border-black/8 hover:bg-white'
                   }`}
                   data-hover="true"
                   data-hover-type={isSelected ? 'red' : 'blue'}
@@ -131,20 +131,38 @@ const InteractiveSimulator = () => {
           </div>
 
           {/* Center Connector (Visual line) */}
-          <div className="hidden lg:col-span-1 lg:flex flex-col items-center justify-center">
+          <div className="hidden lg:col-span-1 lg:flex flex-col items-center justify-center h-full relative py-12">
             <motion.div 
-              className="w-10 h-10 rounded-full bg-white border border-black/[0.06] flex items-center justify-center text-brand-blue shadow-sm"
+              className="w-10 h-10 rounded-full bg-white border border-black/6 flex items-center justify-center text-brand-blue shadow-sm z-10"
               animate={{ rotate: 360 }}
               transition={{ repeat: Infinity, duration: 20, ease: 'linear' }}
             >
               <ArrowRight size={16} />
             </motion.div>
-            <div className="w-px h-32 bg-linear-to-b from-brand-blue to-brand-red my-4 opacity-20" />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <svg width="2" height="200" viewBox="0 0 2 200" fill="none" className="h-full opacity-60">
+                <path d="M1 0v200" stroke="#e2e8f0" strokeWidth="2" />
+                <motion.path 
+                  d="M1 0v200" 
+                  stroke="url(#simGrad)" 
+                  strokeWidth="2" 
+                  strokeDasharray="20, 50"
+                  animate={{ strokeDashoffset: [-70, 0] }}
+                  transition={{ repeat: Infinity, duration: 3, ease: "linear" }}
+                />
+                <defs>
+                  <linearGradient id="simGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#1d4ed8" />
+                    <stop offset="100%" stopColor="#b91c1c" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
           </div>
 
           {/* Right Panel: Simulated Effect Outcomes */}
           <div className="lg:col-span-6">
-            <div className="bg-white h-full p-6 md:p-8 rounded-3xl border border-black/[0.04] shadow-[0_25px_60px_-15px_rgba(15,23,42,0.04)] flex flex-col justify-between relative">
+            <div className="bg-white h-full p-6 md:p-8 rounded-3xl border border-black/4 shadow-[0_25px_60px_-15px_rgba(15,23,42,0.04)] flex flex-col justify-between relative">
               <div className="absolute top-0 right-0 w-24 h-24 bg-linear-to-br from-brand-red/5 to-transparent rounded-tr-3xl pointer-events-none" />
               
               <AnimatePresence mode="wait">
@@ -174,7 +192,7 @@ const InteractiveSimulator = () => {
                   </div>
 
                   {/* Visual Analytics / Outcome Metrics */}
-                  <div className="bg-slate-50/70 border border-black/[0.03] rounded-2xl p-5 flex flex-col gap-4 text-left">
+                  <div className="bg-slate-50/70 border border-black/3 rounded-2xl p-5 flex flex-col gap-4 text-left">
                     <span className="text-[10px] font-bold tracking-widest text-slate-400 uppercase">
                       Outcome Dashboard
                     </span>
@@ -216,7 +234,7 @@ const InteractiveSimulator = () => {
                     </div>
 
                     {/* Risk Level Badge */}
-                    <div className="flex items-center justify-between mt-2 pt-2 border-t border-black/[0.04]">
+                    <div className="flex items-center justify-between mt-2 pt-2 border-t border-black/4">
                       <span className="text-slate-500 text-xs font-medium flex items-center gap-1.5">
                         <ShieldAlert size={12} /> Total Risk Exposure
                       </span>
