@@ -12,7 +12,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-brand-darker border-t border-white/5 pt-16 pb-8 relative overflow-hidden">
+    <footer className="bg-white border-t border-black/[0.05] pt-16 pb-8 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-brand-blue/5 rounded-full filter blur-3xl pointer-events-none" />
 
@@ -29,24 +29,24 @@ const Footer = () => {
                 alt="Clause & Effect Logo" 
                 className="w-8 h-8 object-contain" 
               />
-              <span className="font-display font-bold text-lg text-white">
+              <span className="font-display font-extrabold text-lg text-slate-800">
                 CLAUSE <span className="text-brand-red">&</span> EFFECT
               </span>
             </div>
-            <p className="text-xs text-slate-400 max-w-sm leading-relaxed mb-6">
+            <p className="text-xs text-slate-500 max-w-sm leading-relaxed mb-6">
               Clause & Effect LLP is a premium consortium integrating advanced corporate legal advisory, domestic/international commercial arbitration panels, and dual-certified professional academies.
             </p>
-            <div className="flex items-center gap-1.5 text-[10px] text-slate-500 font-semibold uppercase tracking-wider">
+            <div className="flex items-center gap-1.5 text-[9px] text-slate-400 font-bold uppercase tracking-wider">
               <Shield size={12} className="text-brand-blue" /> Registered LLP • Reg No. AAB-9918
             </div>
           </div>
 
           {/* Column 2: Academic Tracks */}
           <div className="lg:col-span-2 flex flex-col items-start">
-            <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-4">
+            <h4 className="text-xs font-bold text-slate-800 uppercase tracking-widest mb-4">
               Academy Tracks
             </h4>
-            <div className="flex flex-col gap-2.5 text-xs text-slate-400">
+            <div className="flex flex-col gap-2.5 text-xs text-slate-500">
               <a href="#student-portal" className="hover:text-brand-blue transition-colors duration-150">
                 Contract Drafting
               </a>
@@ -64,10 +64,10 @@ const Footer = () => {
 
           {/* Column 3: Corporate services */}
           <div className="lg:col-span-2.5 flex flex-col items-start">
-            <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-4">
+            <h4 className="text-xs font-bold text-slate-800 uppercase tracking-widest mb-4">
               Consultancy Services
             </h4>
-            <div className="flex flex-col gap-2.5 text-xs text-slate-400">
+            <div className="flex flex-col gap-2.5 text-xs text-slate-500">
               <a href="#services" className="hover:text-brand-red transition-colors duration-150">
                 Commercial Vetting
               </a>
@@ -85,7 +85,7 @@ const Footer = () => {
 
           {/* Column 4: Quick Intake */}
           <div className="lg:col-span-2.5 flex flex-col items-start">
-            <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-4">
+            <h4 className="text-xs font-bold text-slate-800 uppercase tracking-widest mb-4">
               Intake Desk
             </h4>
             <a
@@ -102,21 +102,21 @@ const Footer = () => {
         </div>
 
         {/* Bar Council Compliance Disclaimer (Standard Legal requirement for law firms) */}
-        <div className="border-t border-white/5 pt-8 pb-6 text-left">
-          <p className="text-[9px] text-slate-500 leading-relaxed">
+        <div className="border-t border-black/[0.04] pt-8 pb-6 text-left">
+          <p className="text-[9px] text-slate-400 leading-relaxed font-medium">
             <strong>Disclaimer:</strong> As per the regulations of the Bar Council of India, this website is intended solely for informational purposes and to facilitate access to educational content. It does not constitute legal advice, solicitation, or an advertisement of legal services. The transmission, receipt, or use of this website does not establish an attorney-client relationship. Visitors are advised to seek independent legal advice for their specific circumstances.
           </p>
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-white/5 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-[10px] text-slate-500">
+        <div className="border-t border-black/[0.04] pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-[10px] text-slate-400 font-medium">
             © {currentYear} Clause & Effect LLP. All rights reserved.
           </p>
           
           <button
             onClick={handleScrollToTop}
-            className="text-[10px] text-slate-400 hover:text-white transition-colors duration-200 uppercase tracking-widest font-bold flex items-center gap-1"
+            className="text-[10px] text-slate-400 hover:text-slate-800 transition-colors duration-200 uppercase tracking-widest font-bold flex items-center gap-1"
             data-hover="true"
             data-hover-type="text"
             data-hover-text="UP"

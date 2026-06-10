@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-blue: #2563eb;
-  --color-brand-blue-glow: rgba(37, 99, 235, 0.15);
-  --color-brand-red: #dc2626;
-  --color-brand-red-glow: rgba(220, 38, 38, 0.15);
-  --color-brand-dark: #070913;
-  --color-brand-darker: #020308;
-  --color-brand-card: #0d1224;
-  --font-display: 'Plus Jakarta Sans', sans-serif;
-  --font-sans: 'Inter', sans-serif;
+  --color-brand-blue: #1d4ed8;
+  --color-brand-blue-glow: rgba(29, 78, 216, 0.06);
+  --color-brand-red: #b91c1c;
+  --color-brand-red-glow: rgba(185, 28, 28, 0.06);
+  --color-brand-dark: #0f172a;
+  --color-brand-darker: #faf9f5;
+  --color-brand-card: #ffffff;
+  --font-display: 'Playfair Display', serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
 }
 
 /* Custom Base Styles */
@@ -17,7 +17,7 @@ html {
   scroll-behavior: smooth;
   font-family: var(--font-sans);
   background-color: var(--color-brand-darker);
-  color: #f3f4f6;
+  color: var(--color-brand-dark);
   overflow-x: hidden;
 }
 
@@ -37,20 +37,20 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: #e2e8f0;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-brand-blue);
+  background: #cbd5e1;
 }
 
-/* Glassmorphism Classes */
+/* Glassmorphism Classes for Light Mode */
 .glass {
-  background: rgba(13, 18, 36, 0.4);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(15, 23, 42, 0.05);
 }
 
 .glass-hover {
@@ -58,44 +58,44 @@ body {
 }
 
 .glass-hover:hover {
-  background: rgba(13, 18, 36, 0.6);
-  border-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(15, 23, 42, 0.1);
+  box-shadow: 0 30px 60px -15px rgba(15, 23, 42, 0.08);
 }
 
-/* Background Gradients */
+/* Background Gradients (Much subtler for Light Mode) */
 .glow-blue {
   position: absolute;
-  filter: blur(150px);
-  background: radial-gradient(circle, rgba(37, 99, 235, 0.25) 0%, rgba(0,0,0,0) 70%);
+  filter: blur(130px);
+  background: radial-gradient(circle, rgba(29, 78, 216, 0.07) 0%, rgba(255,255,255,0) 70%);
   pointer-events: none;
 }
 
 .glow-red {
   position: absolute;
-  filter: blur(150px);
-  background: radial-gradient(circle, rgba(220, 38, 38, 0.2) 0%, rgba(0,0,0,0) 70%);
+  filter: blur(130px);
+  background: radial-gradient(circle, rgba(185, 28, 28, 0.05) 0%, rgba(255,255,255,0) 70%);
   pointer-events: none;
 }
 
 /* Text Selection */
 ::selection {
-  background-color: var(--color-brand-red);
+  background-color: var(--color-brand-blue);
   color: #ffffff;
 }
 
-/* Custom Grid Pattern background */
+/* Custom Grid Pattern background for Light Mode */
 .grid-bg {
-  background-size: 40px 40px;
+  background-size: 50px 50px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(to right, rgba(15, 23, 42, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.015) 1px, transparent 1px);
 }
 
-/* Font Smoothing & Rendering */
-h1, h2, h3, h4, h5, h6 {
+/* Typography styles */
+h1, h2, h3, h4 {
   font-family: var(--font-display);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
 }
 
 /* Magnetic Button Container */

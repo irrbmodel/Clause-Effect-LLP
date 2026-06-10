@@ -53,7 +53,7 @@ const Navbar = () => {
       <motion.nav
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
           isScrolled 
-            ? 'bg-brand-darker/80 backdrop-blur-md border-b border-white/5 py-4 shadow-lg' 
+            ? 'bg-brand-card/85 backdrop-blur-md border-b border-black/[0.04] py-4 shadow-sm' 
             : 'bg-transparent py-6 border-b border-transparent'
         }`}
         initial={{ y: -100 }}
@@ -72,9 +72,9 @@ const Navbar = () => {
             <img 
               src="/logo.png" 
               alt="Clause & Effect Logo" 
-              className="w-10 h-10 object-contain transition-all duration-300 group-hover:scale-105" 
+              className="w-10 h-10 rounded-full object-cover transition-all duration-300 group-hover:scale-105" 
             />
-            <span className="font-display font-bold text-xl tracking-tight text-white">
+            <span className="font-display font-extrabold text-xl tracking-tight text-brand-dark">
               CLAUSE <span className="text-brand-red">&</span> EFFECT
             </span>
           </a>
@@ -86,7 +86,7 @@ const Navbar = () => {
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleLinkClick(e, link.href)}
-                className="text-sm font-medium text-slate-300 hover:text-white transition-colors duration-200 relative group py-2"
+                className="text-xs font-semibold uppercase tracking-wider text-slate-600 hover:text-slate-900 transition-colors duration-200 relative group py-2"
                 data-hover="true"
                 data-hover-type="blue"
               >
@@ -101,19 +101,19 @@ const Navbar = () => {
             <a
               href="#contact"
               onClick={(e) => handleLinkClick(e, '#contact')}
-              className="px-5 py-2.5 rounded-full text-sm font-semibold glass hover:bg-brand-red/10 border-brand-red/30 hover:border-brand-red text-brand-red flex items-center gap-1.5 transition-all duration-300 shadow-[0_0_15px_rgba(220,38,38,0.05)] hover:shadow-[0_0_20px_rgba(220,38,38,0.2)]"
+              className="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider glass hover:bg-brand-red/5 border-brand-red/20 hover:border-brand-red text-brand-red flex items-center gap-1.5 transition-all duration-300 shadow-[0_4px_12px_rgba(185,28,28,0.02)] hover:shadow-[0_4px_20px_rgba(185,28,28,0.1)]"
               data-hover="true"
               data-hover-type="red"
             >
               Consult Desk
-              <ArrowUpRight size={14} />
+              <ArrowUpRight size={13} className="stroke-[2.5]" />
             </a>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-slate-300 hover:text-white transition-colors duration-200 z-50"
+            className="md:hidden p-2 text-slate-700 hover:text-slate-900 transition-colors duration-200 z-50"
             aria-label="Toggle Menu"
             data-hover="true"
             data-hover-type="blue"
@@ -140,7 +140,7 @@ const Navbar = () => {
             transition={{ type: 'tween', duration: 0.35, ease: 'easeInOut' }}
           >
             <div className="flex flex-col gap-6 text-left">
-              <span className="text-xs font-bold tracking-widest text-slate-500 uppercase border-b border-white/5 pb-2">
+              <span className="text-xs font-bold tracking-widest text-slate-400 uppercase border-b border-black/5 pb-2">
                 Navigation
               </span>
               {navLinks.map((link, i) => (
@@ -148,13 +148,13 @@ const Navbar = () => {
                   key={link.name}
                   href={link.href}
                   onClick={(e) => handleLinkClick(e, link.href)}
-                  className="text-3xl font-display font-bold text-white hover:text-brand-blue transition-colors duration-200 flex items-center justify-between group"
+                  className="text-3xl font-display font-bold text-slate-800 hover:text-brand-blue transition-colors duration-200 flex items-center justify-between group"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 + i * 0.05 }}
                 >
                   {link.name}
-                  <ArrowUpRight size={24} className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-brand-blue" />
+                  <ArrowUpRight size={28} className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-brand-blue" />
                 </motion.a>
               ))}
 
@@ -162,12 +162,12 @@ const Navbar = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="mt-8 pt-8 border-t border-white/5 flex flex-col gap-4"
+                className="mt-8 pt-8 border-t border-black/5 flex flex-col gap-4"
               >
                 <a
                   href="#contact"
                   onClick={(e) => handleLinkClick(e, '#contact')}
-                  className="w-full py-4 text-center rounded-xl bg-brand-red text-white font-semibold text-lg hover:bg-brand-red/90 transition-colors duration-200"
+                  className="w-full py-4 text-center rounded-xl bg-brand-red text-white font-bold text-lg hover:bg-brand-red/90 transition-colors duration-200"
                 >
                   Book Consultation
                 </a>

@@ -14,7 +14,7 @@ const clausesData = [
       cost: 'Low ($15k est.)',
       costPercent: 15,
       risk: 'Minimal',
-      riskColor: 'text-emerald-400 bg-emerald-500/10 border-emerald-500/30'
+      riskColor: 'text-emerald-700 bg-emerald-50 border-emerald-100'
     },
     quote: '"Drafting this clause saved us over $150,000 in court litigation fees and preserved key partnership relations during a licensing dispute."',
     author: 'Tech Innovators Corp, CEO'
@@ -30,7 +30,7 @@ const clausesData = [
       cost: 'Shielded (0% risk)',
       costPercent: 5,
       risk: 'Zero Liability',
-      riskColor: 'text-sky-400 bg-sky-500/10 border-sky-500/30'
+      riskColor: 'text-sky-700 bg-sky-50 border-sky-100'
     },
     quote: '"When a patent troll attacked our client, the IP indemnity clause we drafted forced the software provider to cover all damages and litigation costs."',
     author: 'Fintech Startup, Founder'
@@ -46,7 +46,7 @@ const clausesData = [
       cost: 'Nominal ($5k est.)',
       costPercent: 8,
       risk: 'Very Low',
-      riskColor: 'text-teal-400 bg-teal-500/10 border-teal-500/30'
+      riskColor: 'text-teal-700 bg-teal-50 border-teal-100'
     },
     quote: '"90% of contract disputes are settled at the mediation table. This clause ensures we cool down emotions and reach a commercial agreement without suing."',
     author: 'Global Logistics LLP'
@@ -62,7 +62,7 @@ const clausesData = [
       cost: 'Stable Margins',
       costPercent: 10,
       risk: 'Low Inflation Risk',
-      riskColor: 'text-amber-400 bg-amber-500/10 border-amber-500/30'
+      riskColor: 'text-amber-700 bg-amber-50 border-amber-100'
     },
     quote: '"During the recent inflation shock, our long-term supply agreement adapted automatically without friction or renegotiation stress."',
     author: 'Manufacturing Ltd, CFO'
@@ -74,18 +74,19 @@ const InteractiveSimulator = () => {
   const activeClause = clausesData.find(c => c.id === selectedId);
 
   return (
-    <section id="about" className="py-24 relative overflow-hidden bg-brand-dark">
-      <div className="glow-blue w-[400px] h-[400px] top-1/2 left-0 opacity-30" />
+    <section id="about" className="py-24 relative overflow-hidden bg-brand-darker border-b border-black/[0.04]">
+      {/* Background Soft Glows */}
+      <div className="glow-blue w-[400px] h-[400px] top-1/2 left-0 opacity-25" />
       
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-bold uppercase tracking-widest text-brand-red">Brand Mechanics</span>
-          <h2 className="text-3xl md:text-5xl font-bold text-white mt-3 mb-6">
+          <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mt-3 mb-6 font-display">
             The Clause & Effect Concept
           </h2>
-          <p className="text-slate-400 text-base md:text-lg">
+          <p className="text-slate-600 text-base md:text-lg">
             A contract is not just a document; it is a business strategy. Explore how single clauses shape actual corporate outcomes, litigation costs, and operational timelines.
           </p>
         </div>
@@ -95,7 +96,7 @@ const InteractiveSimulator = () => {
           
           {/* Left Panel: Clause Options Selection */}
           <div className="lg:col-span-5 flex flex-col gap-4">
-            <span className="text-xs font-bold tracking-wider text-slate-500 uppercase px-2">
+            <span className="text-[10px] font-bold tracking-widest text-slate-400 uppercase px-2">
               Select a Strategic Clause
             </span>
             {clausesData.map((clause) => {
@@ -106,24 +107,24 @@ const InteractiveSimulator = () => {
                   onClick={() => setSelectedId(clause.id)}
                   className={`text-left p-5 rounded-2xl transition-all duration-300 border ${
                     isSelected 
-                      ? 'bg-brand-card border-brand-blue/50 shadow-[0_0_20px_rgba(37,99,235,0.15)]' 
-                      : 'bg-brand-darker/40 border-white/5 hover:border-white/10 hover:bg-brand-darker/60'
+                      ? 'bg-white border-brand-blue/30 shadow-[0_10px_25px_-5px_rgba(29,78,216,0.06)]' 
+                      : 'bg-white/40 border-black/[0.03] hover:border-black/[0.08] hover:bg-white'
                   }`}
                   data-hover="true"
                   data-hover-type={isSelected ? 'red' : 'blue'}
                 >
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-[10px] uppercase font-bold tracking-widest text-slate-500">
+                    <span className="text-[9px] uppercase font-bold tracking-widest text-slate-400">
                       {clause.type}
                     </span>
                     {isSelected && (
-                      <span className="flex items-center gap-1 text-xs text-brand-blue font-bold">
+                      <span className="flex items-center gap-1 text-[11px] text-brand-blue font-bold">
                         Active <Activity size={12} className="animate-pulse" />
                       </span>
                     )}
                   </div>
-                  <h3 className="font-bold text-white text-lg mb-1">{clause.name}</h3>
-                  <p className="text-xs text-slate-400 line-clamp-2">{clause.description}</p>
+                  <h3 className="font-bold text-slate-800 text-base md:text-lg mb-1">{clause.name}</h3>
+                  <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed">{clause.description}</p>
                 </button>
               );
             })}
@@ -132,19 +133,19 @@ const InteractiveSimulator = () => {
           {/* Center Connector (Visual line) */}
           <div className="hidden lg:col-span-1 lg:flex flex-col items-center justify-center">
             <motion.div 
-              className="w-10 h-10 rounded-full bg-brand-darker border border-white/10 flex items-center justify-center text-brand-blue"
+              className="w-10 h-10 rounded-full bg-white border border-black/[0.06] flex items-center justify-center text-brand-blue shadow-sm"
               animate={{ rotate: 360 }}
               transition={{ repeat: Infinity, duration: 20, ease: 'linear' }}
             >
-              <ArrowRight size={18} />
+              <ArrowRight size={16} />
             </motion.div>
-            <div className="w-px h-32 bg-linear-to-b from-brand-blue to-brand-red my-4 opacity-50" />
+            <div className="w-px h-32 bg-linear-to-b from-brand-blue to-brand-red my-4 opacity-20" />
           </div>
 
           {/* Right Panel: Simulated Effect Outcomes */}
           <div className="lg:col-span-6">
-            <div className="glass h-full p-6 md:p-8 rounded-3xl border-white/10 flex flex-col justify-between relative">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-linear-to-br from-brand-red/10 to-transparent rounded-tr-3xl pointer-events-none" />
+            <div className="bg-white h-full p-6 md:p-8 rounded-3xl border border-black/[0.04] shadow-[0_25px_60px_-15px_rgba(15,23,42,0.04)] flex flex-col justify-between relative">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-linear-to-br from-brand-red/5 to-transparent rounded-tr-3xl pointer-events-none" />
               
               <AnimatePresence mode="wait">
                 <motion.div
@@ -156,37 +157,37 @@ const InteractiveSimulator = () => {
                   className="flex flex-col h-full justify-between gap-6"
                 >
                   {/* Top header of document card */}
-                  <div>
+                  <div className="text-left">
                     <div className="flex items-center gap-2 mb-4">
-                      <FileText className="text-brand-red" size={20} />
-                      <span className="text-xs font-bold tracking-widest text-slate-400 uppercase">
-                        EFFECT ANALYSIS
+                      <FileText className="text-brand-red" size={18} />
+                      <span className="text-[10px] font-bold tracking-widest text-slate-400 uppercase">
+                        Strategic Effect Analysis
                       </span>
                     </div>
 
-                    <h4 className="text-2xl font-bold text-white mb-3">
+                    <h4 className="text-2xl font-bold text-slate-800 mb-3 font-display">
                       {activeClause.name}
                     </h4>
-                    <p className="text-sm text-slate-400 leading-relaxed">
+                    <p className="text-sm text-slate-600 leading-relaxed font-sans">
                       {activeClause.description}
                     </p>
                   </div>
 
                   {/* Visual Analytics / Outcome Metrics */}
-                  <div className="bg-brand-darker/60 border border-white/5 rounded-2xl p-5 flex flex-col gap-4">
-                    <span className="text-xs font-bold tracking-wider text-slate-500 uppercase">
-                      Operational Outcome Dashboard
+                  <div className="bg-slate-50/70 border border-black/[0.03] rounded-2xl p-5 flex flex-col gap-4 text-left">
+                    <span className="text-[10px] font-bold tracking-widest text-slate-400 uppercase">
+                      Outcome Dashboard
                     </span>
                     
                     {/* Time Metric */}
                     <div>
                       <div className="flex justify-between items-center text-xs mb-1">
-                        <span className="text-slate-400 flex items-center gap-1.5">
+                        <span className="text-slate-500 font-medium flex items-center gap-1.5">
                           <Calendar size={12} className="text-brand-blue" /> Resolution Speed
                         </span>
-                        <span className="font-bold text-white">{activeClause.metrics.time}</span>
+                        <span className="font-bold text-slate-800">{activeClause.metrics.time}</span>
                       </div>
-                      <div className="w-full bg-slate-900 rounded-full h-1.5 overflow-hidden">
+                      <div className="w-full bg-slate-200/60 rounded-full h-1.5 overflow-hidden">
                         <motion.div
                           className="bg-brand-blue h-full"
                           initial={{ width: 0 }}
@@ -199,12 +200,12 @@ const InteractiveSimulator = () => {
                     {/* Cost Metric */}
                     <div>
                       <div className="flex justify-between items-center text-xs mb-1">
-                        <span className="text-slate-400 flex items-center gap-1.5">
+                        <span className="text-slate-500 font-medium flex items-center gap-1.5">
                           <DollarSign size={12} className="text-brand-red" /> Litigation Expense Risk
                         </span>
-                        <span className="font-bold text-white">{activeClause.metrics.cost}</span>
+                        <span className="font-bold text-slate-800">{activeClause.metrics.cost}</span>
                       </div>
-                      <div className="w-full bg-slate-900 rounded-full h-1.5 overflow-hidden">
+                      <div className="w-full bg-slate-200/60 rounded-full h-1.5 overflow-hidden">
                         <motion.div
                           className="bg-brand-red h-full"
                           initial={{ width: 0 }}
@@ -215,20 +216,20 @@ const InteractiveSimulator = () => {
                     </div>
 
                     {/* Risk Level Badge */}
-                    <div className="flex items-center justify-between mt-2 pt-2 border-t border-white/5">
-                      <span className="text-slate-400 text-xs flex items-center gap-1.5">
+                    <div className="flex items-center justify-between mt-2 pt-2 border-t border-black/[0.04]">
+                      <span className="text-slate-500 text-xs font-medium flex items-center gap-1.5">
                         <ShieldAlert size={12} /> Total Risk Exposure
                       </span>
-                      <span className={`text-xs px-2.5 py-1 rounded-full font-bold border ${activeClause.metrics.riskColor}`}>
+                      <span className={`text-[10px] px-2.5 py-1 rounded-full font-bold border ${activeClause.metrics.riskColor}`}>
                         {activeClause.metrics.risk}
                       </span>
                     </div>
                   </div>
 
                   {/* Impact Testimony */}
-                  <div className="border-l-2 border-brand-red pl-4 italic text-sm text-slate-400">
-                    <p className="mb-1">{activeClause.quote}</p>
-                    <span className="text-xs font-bold text-slate-500 uppercase not-italic">
+                  <div className="border-l-2 border-brand-red pl-4 italic text-sm text-slate-600 text-left">
+                    <p className="mb-1 leading-relaxed">"{activeClause.quote}"</p>
+                    <span className="text-[10px] font-bold text-slate-400 uppercase not-italic tracking-wider">
                       - {activeClause.author}
                     </span>
                   </div>

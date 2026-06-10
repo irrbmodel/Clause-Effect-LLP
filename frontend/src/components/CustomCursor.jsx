@@ -60,7 +60,7 @@ const CustomCursor = () => {
     <>
       {/* Outer Follower */}
       <motion.div
-        className="fixed top-0 left-0 w-8 h-8 rounded-full pointer-events-none z-9999 mix-blend-screen -translate-x-1/2 -translate-y-1/2 border border-white"
+        className="fixed top-0 left-0 w-8 h-8 rounded-full pointer-events-none z-9999 -translate-x-1/2 -translate-y-1/2 border border-slate-900"
         style={{
           x: cursorXSpring,
           y: cursorYSpring,
@@ -69,28 +69,28 @@ const CustomCursor = () => {
           scale: hovered ? 1.8 : 1,
           borderColor: 
             hoverType === 'blue' 
-              ? '#3b82f6' 
+              ? '#1d4ed8' 
               : hoverType === 'red' 
-              ? '#ef4444' 
+              ? '#b91c1c' 
               : hoverType === 'text'
-              ? 'rgba(255, 255, 255, 0.8)'
-              : '#ffffff',
+              ? 'rgba(15, 23, 42, 0.8)'
+              : '#0f172a',
           backgroundColor: 
             hoverType === 'text' 
-              ? 'rgba(255, 255, 255, 0.1)' 
+              ? 'rgba(15, 23, 42, 0.05)' 
               : 'rgba(255, 255, 255, 0)',
           boxShadow: hovered 
             ? hoverType === 'blue' 
-              ? '0 0 15px rgba(59, 130, 246, 0.6)'
+              ? '0 0 15px rgba(29, 78, 216, 0.4)'
               : hoverType === 'red' 
-              ? '0 0 15px rgba(239, 68, 68, 0.6)'
-              : '0 0 10px rgba(255, 255, 255, 0.3)'
+              ? '0 0 15px rgba(185, 28, 28, 0.4)'
+              : '0 0 10px rgba(15, 23, 42, 0.15)'
             : 'none',
         }}
         transition={{ type: 'tween', ease: 'backOut', duration: 0.2 }}
       >
         {hoverType === 'text' && hoverText && (
-          <span className="absolute text-[8px] font-bold font-display uppercase tracking-wider text-white select-none pointer-events-none text-center w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          <span className="absolute text-[8px] font-bold font-sans uppercase tracking-wider text-slate-800 select-none pointer-events-none text-center w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
             {hoverText}
           </span>
         )}
@@ -98,7 +98,7 @@ const CustomCursor = () => {
 
       {/* Center Dot */}
       <motion.div
-        className="fixed top-0 left-0 w-1.5 h-1.5 rounded-full pointer-events-none z-9999 bg-white -translate-x-1/2 -translate-y-1/2"
+        className="fixed top-0 left-0 w-1.5 h-1.5 rounded-full pointer-events-none z-9999 bg-slate-900 -translate-x-1/2 -translate-y-1/2"
         style={{
           x: cursorX,
           y: cursorY,
@@ -107,10 +107,10 @@ const CustomCursor = () => {
           scale: hovered ? 0.5 : 1,
           backgroundColor: 
             hoverType === 'blue' 
-              ? '#60a5fa' 
+              ? '#2563eb' 
               : hoverType === 'red' 
-              ? '#f87171' 
-              : '#ffffff',
+              ? '#dc2626' 
+              : '#0f172a',
         }}
       />
     </>

@@ -55,58 +55,59 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 relative overflow-hidden bg-brand-darker grid-bg">
+    <section id="contact" className="py-24 relative overflow-hidden bg-brand-darker grid-bg border-b border-black/[0.04]">
+      {/* Background Soft Glows */}
       <div className="glow-red w-[500px] h-[500px] top-1/2 left-0 opacity-15" />
-      <div className="glow-blue w-[400px] h-[400px] -bottom-20 -right-20 opacity-20" />
+      <div className="glow-blue w-[400px] h-[400px] -bottom-20 -right-20 opacity-15" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-stretch">
           
           {/* Left Panel: Contact Info */}
           <div className="lg:col-span-5 flex flex-col justify-between text-left">
             <div>
               <span className="text-xs font-bold uppercase tracking-widest text-brand-red">Consultation Desk</span>
-              <h2 className="text-3xl md:text-5xl font-bold text-white mt-3 mb-6">
+              <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mt-3 mb-6 font-display">
                 Connect With Us
               </h2>
-              <p className="text-slate-400 text-sm md:text-base leading-relaxed mb-8">
+              <p className="text-slate-600 text-sm md:text-base leading-relaxed mb-8">
                 Initiate a discussion. Whether you are seeking career placement coaching, arbitration counsel, corporate document reviews, or academic registrations, our legal secretariat is here to coordinate.
               </p>
 
               {/* Address details */}
               <div className="flex flex-col gap-6">
                 <div className="flex items-start gap-4">
-                  <div className="p-3.5 rounded-xl bg-brand-blue/10 border border-brand-blue/20 text-brand-blue shrink-0">
+                  <div className="p-3.5 rounded-xl bg-brand-blue/5 border border-brand-blue/10 text-brand-blue shrink-0">
                     <Mail size={18} />
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500">Email Intake</h4>
-                    <a href="mailto:secretariat@clauseandeffect.in" className="text-white font-medium hover:text-brand-blue transition-colors duration-200 text-sm">
+                    <h4 className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Email Intake</h4>
+                    <a href="mailto:secretariat@clauseandeffect.in" className="text-slate-800 font-bold hover:text-brand-blue transition-colors duration-200 text-sm">
                       secretariat@clauseandeffect.in
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="p-3.5 rounded-xl bg-brand-red/10 border border-brand-red/20 text-brand-red shrink-0">
+                  <div className="p-3.5 rounded-xl bg-brand-red/5 border border-brand-red/10 text-brand-red shrink-0">
                     <Phone size={18} />
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500">Phone Hotline</h4>
-                    <a href="tel:+919876543210" className="text-white font-medium hover:text-brand-red transition-colors duration-200 text-sm">
+                    <h4 className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Phone Hotline</h4>
+                    <a href="tel:+919876543210" className="text-slate-800 font-bold hover:text-brand-red transition-colors duration-200 text-sm">
                       +91 98765 43210
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 text-white shrink-0">
+                  <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 shrink-0">
                     <MapPin size={18} />
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500">Office Chambers</h4>
-                    <p className="text-slate-300 text-sm">
+                    <h4 className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Office Chambers</h4>
+                    <p className="text-slate-600 text-sm">
                       Level 4, Chambers Building, Legal District, New Delhi - 110001, India
                     </p>
                   </div>
@@ -115,9 +116,9 @@ const Contact = () => {
             </div>
 
             {/* Quick response note */}
-            <div className="mt-12 p-4 rounded-2xl bg-brand-card/60 border border-white/5 flex items-center gap-3">
+            <div className="mt-12 p-4 rounded-2xl bg-white border border-black/[0.04] flex items-center gap-3 shadow-xs">
               <Clock className="text-brand-blue shrink-0 animate-pulse" size={20} />
-              <div className="text-xs text-slate-400 font-medium">
+              <div className="text-xs text-slate-500 font-medium">
                 We guarantee a review and follow-up response within 24 business hours.
               </div>
             </div>
@@ -125,7 +126,7 @@ const Contact = () => {
 
           {/* Right Panel: Interactive Form */}
           <div className="lg:col-span-7">
-            <div className="glass rounded-3xl border-white/10 p-6 md:p-8 relative h-full flex flex-col justify-center">
+            <div className="bg-white border border-black/[0.04] rounded-3xl p-6 md:p-8 relative h-full flex flex-col justify-center shadow-[0_25px_60px_-15px_rgba(15,23,42,0.04)]">
               
               <AnimatePresence mode="wait">
                 {!isSubmitted ? (
@@ -140,7 +141,7 @@ const Contact = () => {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {/* Name input */}
                       <div className="flex flex-col gap-1.5">
-                        <label className="text-xs font-bold text-slate-400 uppercase tracking-wide">
+                        <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
                           Full Name *
                         </label>
                         <input
@@ -148,9 +149,9 @@ const Contact = () => {
                           name="name"
                           value={formData.name}
                           onChange={handleChange}
-                          className={`w-full px-4 py-3 rounded-xl bg-brand-darker/60 border ${
-                            errors.name ? 'border-brand-red' : 'border-white/10 focus:border-brand-blue'
-                          } text-white text-sm focus:outline-none transition-all duration-300`}
+                          className={`w-full px-4 py-3 rounded-xl bg-slate-50 border ${
+                            errors.name ? 'border-brand-red' : 'border-black/[0.06] focus:border-brand-blue focus:bg-white'
+                          } text-slate-800 text-sm focus:outline-none transition-all duration-300`}
                           placeholder="Your Name"
                           data-hover="true"
                           data-hover-type="blue"
@@ -162,7 +163,7 @@ const Contact = () => {
 
                       {/* Email input */}
                       <div className="flex flex-col gap-1.5">
-                        <label className="text-xs font-bold text-slate-400 uppercase tracking-wide">
+                        <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
                           Email Address *
                         </label>
                         <input
@@ -170,9 +171,9 @@ const Contact = () => {
                           name="email"
                           value={formData.email}
                           onChange={handleChange}
-                          className={`w-full px-4 py-3 rounded-xl bg-brand-darker/60 border ${
-                            errors.email ? 'border-brand-red' : 'border-white/10 focus:border-brand-blue'
-                          } text-white text-sm focus:outline-none transition-all duration-300`}
+                          className={`w-full px-4 py-3 rounded-xl bg-slate-50 border ${
+                            errors.email ? 'border-brand-red' : 'border-black/[0.06] focus:border-brand-blue focus:bg-white'
+                          } text-slate-800 text-sm focus:outline-none transition-all duration-300`}
                           placeholder="you@example.com"
                           data-hover="true"
                           data-hover-type="blue"
@@ -186,7 +187,7 @@ const Contact = () => {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {/* Phone input */}
                       <div className="flex flex-col gap-1.5">
-                        <label className="text-xs font-bold text-slate-400 uppercase tracking-wide">
+                        <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
                           Phone Number
                         </label>
                         <input
@@ -194,7 +195,7 @@ const Contact = () => {
                           name="phone"
                           value={formData.phone}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-xl bg-brand-darker/60 border border-white/10 focus:border-brand-blue text-white text-sm focus:outline-none transition-all duration-300"
+                          className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-black/[0.06] focus:border-brand-blue focus:bg-white text-slate-800 text-sm focus:outline-none transition-all duration-300"
                           placeholder="+91 XXXXX XXXXX"
                           data-hover="true"
                           data-hover-type="blue"
@@ -203,28 +204,28 @@ const Contact = () => {
 
                       {/* Service selector */}
                       <div className="flex flex-col gap-1.5">
-                        <label className="text-xs font-bold text-slate-400 uppercase tracking-wide">
+                        <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
                           Service of Interest
                         </label>
                         <select
                           name="service"
                           value={formData.service}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-xl bg-brand-darker/60 border border-white/10 focus:border-brand-blue text-white text-sm focus:outline-none transition-all duration-300 appearance-none cursor-pointer"
+                          className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-black/[0.06] focus:border-brand-blue focus:bg-white text-slate-800 text-sm focus:outline-none transition-all duration-300 appearance-none cursor-pointer"
                           data-hover="true"
                           data-hover-type="blue"
                         >
-                          <option value="counselling" className="bg-brand-dark">Career Counselling</option>
-                          <option value="consulting" className="bg-brand-dark">Legal Consultancy</option>
-                          <option value="courses" className="bg-brand-dark">Certificate Courses</option>
-                          <option value="arbitration" className="bg-brand-dark">Arbitration & Mediation</option>
+                          <option value="counselling">Career Counselling</option>
+                          <option value="consulting">Legal Consultancy</option>
+                          <option value="courses">Certificate Courses</option>
+                          <option value="arbitration">Arbitration & Mediation</option>
                         </select>
                       </div>
                     </div>
 
                     {/* Message input */}
                     <div className="flex flex-col gap-1.5">
-                      <label className="text-xs font-bold text-slate-400 uppercase tracking-wide">
+                      <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
                         Details of your Case / Career Goals *
                       </label>
                       <textarea
@@ -232,9 +233,9 @@ const Contact = () => {
                         rows={4}
                         value={formData.message}
                         onChange={handleChange}
-                        className={`w-full px-4 py-3 rounded-xl bg-brand-darker/60 border ${
-                          errors.message ? 'border-brand-red' : 'border-white/10 focus:border-brand-blue'
-                        } text-white text-sm focus:outline-none transition-all duration-300 resize-none`}
+                        className={`w-full px-4 py-3 rounded-xl bg-slate-50 border ${
+                          errors.message ? 'border-brand-red' : 'border-black/[0.06] focus:border-brand-blue focus:bg-white'
+                        } text-slate-800 text-sm focus:outline-none transition-all duration-300 resize-none`}
                         placeholder="Briefly describe what service or advice you are seeking..."
                         data-hover="true"
                         data-hover-type="blue"
@@ -248,7 +249,7 @@ const Contact = () => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="mt-2 w-full py-4 bg-brand-red hover:bg-brand-red/90 text-white rounded-xl font-bold flex items-center justify-center gap-2 transition-all duration-300 shadow-[0_0_20px_rgba(220,38,38,0.2)] hover:scale-[1.01]"
+                      className="mt-2 w-full py-4 bg-brand-red hover:bg-brand-red/95 text-white rounded-xl font-bold flex items-center justify-center gap-2 transition-all duration-300 shadow-[0_4px_12px_rgba(185,28,28,0.15)] hover:scale-[1.01] text-xs uppercase tracking-wider"
                       data-hover="true"
                       data-hover-type="red"
                     >
@@ -259,7 +260,7 @@ const Contact = () => {
                         </>
                       ) : (
                         <>
-                          <Send size={16} />
+                          <Send size={15} className="stroke-[2.5]" />
                           Submit Intake Form
                         </>
                       )}
@@ -274,18 +275,18 @@ const Contact = () => {
                     exit={{ scale: 0.9, opacity: 0 }}
                     transition={{ type: 'spring', stiffness: 100 }}
                   >
-                    <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-6 animate-bounce">
+                    <div className="w-16 h-16 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 mb-6 animate-bounce">
                       <CheckCircle2 size={36} className="stroke-[2.5]" />
                     </div>
-                    <h3 className="text-2xl font-bold text-white mb-2">
+                    <h3 className="text-2xl font-bold text-slate-800 mb-2 font-display">
                       Case Intake Successful
                     </h3>
-                    <p className="text-slate-400 text-sm max-w-sm leading-relaxed mb-6">
+                    <p className="text-slate-500 text-sm max-w-sm leading-relaxed mb-6">
                       Your files and request have been logged with the Clause & Effect Secretariat. An advisor will contact you within 24 business hours with calendar invites.
                     </p>
                     <button
                       onClick={() => setIsSubmitted(false)}
-                      className="px-6 py-2.5 bg-brand-blue hover:bg-brand-blue/90 text-white text-xs font-bold rounded-xl transition-all duration-200"
+                      className="px-6 py-3 bg-brand-blue hover:bg-brand-blue/95 text-white text-xs font-bold rounded-xl transition-all duration-200 uppercase tracking-wider shadow-sm"
                       data-hover="true"
                       data-hover-type="blue"
                     >
